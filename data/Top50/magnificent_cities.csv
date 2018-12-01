@@ -1,0 +1,502 @@
+,name,population,lat,lng,countryId,countryName,countryCode,fclName,geonameId
+0,Moscow,10381222,55.75222,37.61556,2017370,Russia,RU,"city, village,...",524901
+1,London,7556900,51.50853,-0.12574,2635167,United Kingdom,GB,"city, village,...",2643743
+2,St Petersburg,5028000,59.93863,30.31413,2017370,Russia,RU,"city, village,...",498817
+3,Berlin,3426354,52.52437,13.41053,2921044,Germany,DE,"city, village,...",2950159
+4,Madrid,3255944,40.4165,-3.70256,2510769,Spain,ES,"city, village,...",3117735
+5,Rome,2318895,41.89193,12.51133,3175395,Italy,IT,"city, village,...",3169070
+6,Kyiv,2797553,50.45466,30.5238,690791,Ukraine,UA,"city, village,...",703448
+7,Paris,2138551,48.85341,2.3488,3017382,France,FR,"city, village,...",2988507
+8,Bucharest,1877155,44.43225,26.10626,798549,Romania,RO,"city, village,...",683506
+9,Budapest,1741041,47.49801,19.03991,719819,Hungary,HU,"city, village,...",3054643
+10,Hamburg,1739117,53.57532,10.01534,2921044,Germany,DE,"city, village,...",2911298
+11,Minsk,1742124,53.9,27.56667,630336,Belarus,BY,"city, village,...",625144
+12,Warsaw,1702139,52.22977,21.01178,798544,Poland,PL,"city, village,...",756135
+13,Belgrade,1273651,44.80401,20.46513,6290252,Serbia,RS,"city, village,...",792680
+14,Vienna,1691468,48.20849,16.37208,2782113,Austria,AT,"city, village,...",2761369
+15,Kharkiv,1430885,49.98081,36.25272,690791,Ukraine,UA,"city, village,...",706483
+16,Barcelona,1621537,41.38879,2.15899,2510769,Spain,ES,"city, village,...",3128760
+17,Novosibirsk,1419007,55.0415,82.9346,2017370,Russia,RU,"city, village,...",1496747
+18,Nizhny Novgorod,1284164,56.32867,44.00205,2017370,Russia,RU,"city, village,...",520555
+19,Milan,1236837,45.46427,9.18951,3175395,Italy,IT,"city, village,...",3173435
+20,Yekaterinburg,1349772,56.8519,60.6122,2017370,Russia,RU,"city, village,...",1486209
+21,Munich,1260391,48.13743,11.57549,2921044,Germany,DE,"city, village,...",2867714
+22,Prague,1165581,50.08804,14.42076,3077311,Czechia,CZ,"city, village,...",3067696
+23,Samara,1134730,53.20007,50.15,2017370,Russia,RU,"city, village,...",499099
+24,Omsk,1129281,54.99244,73.36859,2017370,Russia,RU,"city, village,...",1496153
+25,Sofia,1152556,42.69751,23.32415,732800,Bulgaria,BG,"city, village,...",727011
+26,Dnipro,1032822,48.4593,35.03865,690791,Ukraine,UA,"city, village,...",709930
+27,Kazan’,1104738,55.78874,49.12214,2017370,Russia,RU,"city, village,...",551487
+28,Ufa,1033338,54.74306,55.96779,2017370,Russia,RU,"city, village,...",479561
+29,Chelyabinsk,1062919,55.15402,61.42915,2017370,Russia,RU,"city, village,...",1508291
+30,Donetsk,1024700,48.023,37.80224,690791,Ukraine,UA,"city, village,...",709717
+31,Naples,959470,40.85216,14.26811,3175395,Italy,IT,"city, village,...",3172394
+32,Birmingham,984333,52.48142,-1.89983,2635167,United Kingdom,GB,"city, village,...",2655603
+33,Perm,982419,58.01046,56.25017,2017370,Russia,RU,"city, village,...",511196
+34,Rostov-on-Don,1074482,47.23135,39.72328,2017370,Russia,RU,"city, village,...",501175
+35,Odesa,1001558,46.47747,30.73262,690791,Ukraine,UA,"city, village,...",698740
+36,Volgograd,1011417,48.71939,44.50183,2017370,Russia,RU,"city, village,...",472757
+37,Cologne,963395,50.93333,6.95,2921044,Germany,DE,"city, village,...",2886242
+38,Turin,870456,45.07049,7.68682,3175395,Italy,IT,"city, village,...",3165524
+39,Voronezh,848752,51.67204,39.1843,2017370,Russia,RU,"city, village,...",472045
+40,Krasnoyarsk,927200,56.01839,92.86717,2017370,Russia,RU,"city, village,...",1502026
+41,Saratov,863725,51.54056,46.00861,2017370,Russia,RU,"city, village,...",498677
+42,Zagreb,698966,45.81444,15.97798,3202326,Croatia,HR,"city, village,...",3186886
+43,Zaporizhia,796217,47.82289,35.19031,690791,Ukraine,UA,"city, village,...",687700
+44,?ód?,768755,51.77058,19.47395,798544,Poland,PL,"city, village,...",3093133
+45,Marseille,794811,43.29695,5.38107,3017382,France,FR,"city, village,...",2995469
+46,Riga,742572,56.946,24.10589,458258,Latvia,LV,"city, village,...",456172
+47,Lviv,717803,49.83826,24.02324,690791,Ukraine,UA,"city, village,...",702550
+48,Athens,664046,37.97945,23.71622,390903,Greece,GR,"city, village,...",264371
+49,Thessaloniki,354290,40.64361,22.93086,390903,Greece,GR,"city, village,...",734077
+50,Stockholm,1515017,59.33258,18.0649,2661886,Sweden,SE,"city, village,...",2673730
+51,Krakow,755050,50.06143,19.93658,798544,Poland,PL,"city, village,...",3094802
+52,Valencia,814208,39.46975,-0.37739,2510769,Spain,ES,"city, village,...",2509954
+53,Amsterdam,741636,52.37403,4.88969,2750405,Netherlands,NL,"city, village,...",2759794
+54,Leeds,455123,53.79648,-1.54785,2635167,United Kingdom,GB,"city, village,...",2644688
+55,Tolyatti,702879,53.5303,49.3461,2017370,Russia,RU,"city, village,...",482283
+56,Kryvyi Rih,652380,47.90966,33.38044,690791,Ukraine,UA,"city, village,...",703845
+57,Seville,703206,37.38283,-5.97317,2510769,Spain,ES,"city, village,...",2510911
+58,Palermo,648260,38.13205,13.33561,3175395,Italy,IT,"city, village,...",2523920
+59,Ulyanovsk,640680,54.32824,48.38657,2017370,Russia,RU,"city, village,...",479123
+60,Chisinau,635994,47.00556,28.8575,617790,Moldova,MD,"city, village,...",618426
+61,Genoa,580223,44.40478,8.94439,3175395,Italy,IT,"city, village,...",3176219
+62,Izhevsk,631038,56.84976,53.20448,2017370,Russia,RU,"city, village,...",554840
+63,Frankfurt am Main,650000,50.11552,8.68417,2921044,Germany,DE,"city, village,...",2925533
+64,Krasnodar,649851,45.04484,38.97603,2017370,Russia,RU,"city, village,...",542420
+65,Wroc?aw,634893,51.1,17.03333,798544,Poland,PL,"city, village,...",3081368
+66,Glasgow,591620,55.86515,-4.25763,2635167,United Kingdom,GB,"city, village,...",2648579
+67,Yaroslavl,606730,57.62987,39.87368,2017370,Russia,RU,"city, village,...",468902
+68,Khabarovsk,579000,48.48271,135.08379,2017370,Russia,RU,"city, village,...",2022890
+69,Vladivostok,587022,43.10562,131.87353,2017370,Russia,RU,"city, village,...",2013348
+70,Zaragoza,674317,41.65606,-0.87734,2510769,Spain,ES,"city, village,...",3104324
+71,Essen,593085,51.45657,7.01228,2921044,Germany,DE,"city, village,...",2928810
+72,Rotterdam,598199,51.9225,4.47917,2750405,Netherlands,NL,"city, village,...",2747891
+73,Irkutsk,586695,52.29778,104.29639,2017370,Russia,RU,"city, village,...",2023469
+74,Dortmund,588462,51.51494,7.466,2921044,Germany,DE,"city, village,...",2935517
+75,Stuttgart,589793,48.78232,9.17702,2921044,Germany,DE,"city, village,...",2825297
+76,Barnaul,599579,53.36056,83.76361,2017370,Russia,RU,"city, village,...",1510853
+77,Vilnius,542366,54.68916,25.2798,597427,Lithuania,LT,"city, village,...",593116
+78,Pozna?,570352,52.40692,16.92993,798544,Poland,PL,"city, village,...",3088171
+79,Düsseldorf,573057,51.22172,6.77616,2921044,Germany,DE,"city, village,...",2934246
+80,Novokuznetsk,539616,53.7557,87.1099,2017370,Russia,RU,"city, village,...",1496990
+81,Lisbon,517802,38.71667,-9.13333,2264397,Portugal,PT,"city, village,...",2267057
+82,Helsinki,558457,60.16952,24.93545,660013,Finland,FI,"city, village,...",658225
+83,Málaga,568305,36.72016,-4.42034,2510769,Spain,ES,"city, village,...",2514256
+84,Bremen,546501,53.07516,8.80777,2921044,Germany,DE,"city, village,...",2944388
+85,Sheffield,685368,53.38297,-1.4659,2635167,United Kingdom,GB,"city, village,...",2638077
+86,Sarajevo,696731,43.84864,18.35644,3277605,Bosnia and Herzegovina,BA,"city, village,...",3191281
+87,Penza,512602,53.20066,45.00464,2017370,Russia,RU,"city, village,...",511565
+88,Ryazan,520173,54.6269,39.6916,2017370,Russia,RU,"city, village,...",500096
+89,Orenburg,550204,51.7727,55.0988,2017370,Russia,RU,"city, village,...",515003
+90,Duisburg,504358,51.43247,6.76516,2921044,Germany,DE,"city, village,...",2934691
+91,Lipetsk,515655,52.60311,39.57076,2017370,Russia,RU,"city, village,...",535121
+92,Hanover,515140,52.37052,9.73322,2921044,Germany,DE,"city, village,...",2910831
+93,Mykolayiv,510840,46.96591,31.9974,690791,Ukraine,UA,"city, village,...",700569
+94,Tula,468825,54.19609,37.61822,2017370,Russia,RU,"city, village,...",480562
+95,Oslo,580000,59.91273,10.74609,3144096,Norway,NO,"city, village,...",3143244
+96,Tyumen,519119,57.15222,65.52722,2017370,Russia,RU,"city, village,...",1488754
+97,Copenhagen,1153615,55.67594,12.56553,2623032,Denmark,DK,"city, village,...",2618425
+98,Kemerovo,477090,55.33333,86.08333,2017370,Russia,RU,"city, village,...",1503901
+99,Mariupol,481626,47.09514,37.54131,690791,Ukraine,UA,"city, village,...",701822
+100,Leipzig,504971,51.33962,12.37129,2921044,Germany,DE,"city, village,...",2879139
+101,Nuremberg,499237,49.45421,11.07752,2921044,Germany,DE,"city, village,...",2861650
+102,Bradford,299310,53.79391,-1.75206,2635167,United Kingdom,GB,"city, village,...",2654993
+103,Astrakhan,502533,46.34968,48.04076,2017370,Russia,RU,"city, village,...",580497
+104,Dublin,1024027,53.33306,-6.24889,2963597,Ireland,IE,"city, village,...",2964574
+105,Tomsk,485519,56.49771,84.97437,2017370,Russia,RU,"city, village,...",1489425
+106,Dresden,486854,51.05089,13.73832,2921044,Germany,DE,"city, village,...",2935022
+107,Gomel,480951,52.4345,30.9754,630336,Belarus,BY,"city, village,...",627907
+108,Liverpool,864122,53.41058,-2.97794,2635167,United Kingdom,GB,"city, village,...",2644210
+109,Antwerp,459805,51.21989,4.40346,2802361,Belgium,BE,"city, village,...",2803138
+110,Luhansk,452000,48.56705,39.31706,690791,Ukraine,UA,"city, village,...",702658
+111,Kirov,457383,58.59665,49.66007,2017370,Russia,RU,"city, village,...",548408
+112,Gothenburg,572799,57.70716,11.96679,2661886,Sweden,SE,"city, village,...",2711537
+113,Cheboksary,446781,56.13222,47.25194,2017370,Russia,RU,"city, village,...",569696
+114,Ivanovo,420839,56.99719,40.97139,2017370,Russia,RU,"city, village,...",555312
+115,Gda?sk,461865,54.35205,18.64637,798544,Poland,PL,"city, village,...",3099434
+116,Bryansk,427236,53.25209,34.37167,2017370,Russia,RU,"city, village,...",571476
+117,Tver',400212,56.85836,35.90057,2017370,Russia,RU,"city, village,...",480060
+118,Edinburgh,464990,55.95206,-3.19648,2635167,United Kingdom,GB,"city, village,...",2650225
+119,Bratislava,423737,48.14816,17.10674,3057568,Slovakia,SK,"city, village,...",3060972
+120,The Hague,474292,52.07667,4.29861,2750405,Netherlands,NL,"city, village,...",2747373
+121,Kursk,409431,51.73733,36.18735,2017370,Russia,RU,"city, village,...",538560
+122,Greater Manchester,2782141,53.45,-2.23333,2635167,United Kingdom,GB,"parks,area, ...",2648108
+123,Skopje,474889,41.99646,21.43141,718075,Macedonia,MK,"city, village,...",785842
+124,Magnitogorsk,413351,53.41861,59.04722,2017370,Russia,RU,"city, village,...",532288
+125,Kaliningrad,434954,54.70649,20.51095,2017370,Russia,RU,"city, village,...",554234
+126,Tallinn,394024,59.43696,24.75353,453733,Estonia,EE,"city, village,...",588409
+127,Szczecin,407811,53.42894,14.55302,798544,Poland,PL,"city, village,...",3083829
+128,Lyon,472317,45.74846,4.84671,3017382,France,FR,"city, village,...",2996944
+129,Kaunas,374643,54.90272,23.90961,597427,Lithuania,LT,"city, village,...",598316
+130,Bristol,617280,51.45523,-2.59665,2635167,United Kingdom,GB,"city, village,...",2654675
+131,Nizhny Tagil,381116,57.91944,59.965,2017370,Russia,RU,"city, village,...",520494
+132,Bochum,385729,51.48165,7.21648,2921044,Germany,DE,"city, village,...",2947416
+133,Kirklees,437047,53.58333,-1.75,2635167,United Kingdom,GB,"country, state, region,...",3333161
+134,Makeyevka,0,52.13589,68.29371,1522867,Kazakhstan,KZ,"city, village,...",1519826
+135,Bydgoszcz,366452,53.1235,18.00762,798544,Poland,PL,"city, village,...",3102014
+136,Bologna,366133,44.49381,11.33875,3175395,Italy,IT,"city, village,...",3181928
+137,Brno,369559,49.19522,16.60796,3077311,Czechia,CZ,"city, village,...",3078610
+138,Vinnytsia,352115,49.23278,28.48097,690791,Ukraine,UA,"city, village,...",689558
+139,Florence,349296,43.77925,11.24626,3175395,Italy,IT,"city, village,...",3176959
+140,Murmansk,319263,68.97917,33.09251,2017370,Russia,RU,"city, village,...",524305
+141,Ulan-Ude,360278,51.82721,107.60627,2017370,Russia,RU,"city, village,...",2014407
+142,Wuppertal,360797,51.25627,7.14816,2921044,Germany,DE,"city, village,...",2805753
+143,Arkhangelsk,356051,64.5401,40.5433,2017370,Russia,RU,"city, village,...",581049
+144,Kurgan,343129,55.45,65.33333,2017370,Russia,RU,"city, village,...",1501321
+145,Toulouse,433055,43.60426,1.44367,3017382,France,FR,"city, village,...",2972315
+146,Lublin,360044,51.25,22.56667,798544,Poland,PL,"city, village,...",765876
+147,Mogilev,369200,53.9168,30.3449,630336,Belarus,BY,"city, village,...",625665
+148,Kherson,320477,46.65581,32.6178,690791,Ukraine,UA,"city, village,...",706448
+149,Las Palmas de Gran Canaria,381847,28.09973,-15.41343,2510769,Spain,ES,"city, village,...",2515270
+150,Smolensk,320991,54.7818,32.0401,2017370,Russia,RU,"city, village,...",491687
+151,Bilbao,354860,43.26271,-2.92528,2510769,Spain,ES,"city, village,...",3128026
+152,Sebastopol,416263,44.58883,33.5224,690791,Ukraine,UA,"city, village,...",694423
+153,Murcia,436870,37.98704,-1.13004,2510769,Spain,ES,"city, village,...",2513416
+154,Fife,370330,56.25,-3.16667,2635167,United Kingdom,GB,"country, state, region,...",2649469
+155,Ia?i,318012,47.16667,27.6,798549,Romania,RO,"city, village,...",675810
+156,Katowice,317316,50.25841,19.02754,798544,Poland,PL,"city, village,...",3096472
+157,Nice,338620,43.70313,7.26608,3017382,France,FR,"city, village,...",2990440
+158,Stavropol,363064,45.0428,41.9734,2017370,Russia,RU,"city, village,...",487846
+159,Constan?a,303399,44.18073,28.63432,798549,Romania,RO,"city, village,...",680963
+160,Oryol,324200,52.96508,36.07849,2017370,Russia,RU,"city, village,...",515012
+161,Catania,290927,37.49223,15.07041,3175395,Italy,IT,"city, village,...",2525068
+162,Vitebsk,342700,55.1904,30.2049,630336,Belarus,BY,"city, village,...",620127
+163,Kaluga,338978,54.5293,36.27542,2017370,Russia,RU,"city, village,...",553915
+164,Belgorod,345289,50.61074,36.58015,2017370,Russia,RU,"city, village,...",578072
+165,Zurich,341730,47.36667,8.55,2658434,Switzerland,CH,"city, village,...",2657896
+166,Simferopol,336460,44.95719,34.11079,690791,Ukraine,UA,"city, village,...",693805
+167,Bari,277387,41.11148,16.8554,3175395,Italy,IT,"city, village,...",3182351
+168,Vladimir,310024,56.13655,40.39658,2017370,Russia,RU,"city, village,...",473247
+169,Sochi,327608,43.59917,39.72569,2017370,Russia,RU,"city, village,...",491422
+170,Cluj-Napoca,316748,46.76667,23.6,798549,Romania,RO,"city, village,...",681290
+171,Makhachkala,497959,42.97638,47.50236,2017370,Russia,RU,"city, village,...",532096
+172,Gala?i,294087,45.45,28.05,798549,Romania,RO,"city, village,...",677697
+173,Wirral,0,53.37616,-3.10501,2635167,United Kingdom,GB,"city, village,...",7733088
+174,Cumbernauld,51610,55.94685,-3.99051,2635167,United Kingdom,GB,"city, village,...",2651715
+175,Timi?oara,315053,45.75372,21.22571,798549,Romania,RO,"city, village,...",665087
+176,Cherepovets,315738,59.13333,37.9,2017370,Russia,RU,"city, village,...",569223
+177,Ostrava,313088,49.83465,18.28204,3077311,Czechia,CZ,"city, village,...",3068799
+178,Bielefeld,331906,52.03333,8.53333,2921044,Germany,DE,"city, village,...",2949186
+179,Wakefield,78978,53.68331,-1.49768,2635167,United Kingdom,GB,"city, village,...",2634910
+180,Valladolid,317864,41.65518,-4.72372,2510769,Spain,ES,"city, village,...",3106672
+181,Saransk,303394,54.1838,45.1749,2017370,Russia,RU,"city, village,...",498698
+182,Cardiff,447287,51.48,-3.18,2635167,United Kingdom,GB,"city, village,...",2653822
+183,Bra?ov,276088,45.64861,25.60613,798549,Romania,RO,"city, village,...",683844
+184,Craiova,304142,44.31667,23.8,798549,Romania,RO,"city, village,...",680332
+185,Poltava,317847,49.59373,34.54073,690791,Ukraine,UA,"city, village,...",696643
+186,Tambov,290933,52.73169,41.44326,2017370,Russia,RU,"city, village,...",484646
+187,Dudley,199059,52.5,-2.08333,2635167,United Kingdom,GB,"city, village,...",2650839
+188,Wigan,175405,53.54296,-2.63706,2635167,United Kingdom,GB,"city, village,...",2633948
+189,Chita,308500,52.03171,113.50087,2017370,Russia,RU,"city, village,...",2025339
+190,Vladikavkaz,317370,43.03667,44.66778,2017370,Russia,RU,"city, village,...",473249
+191,East Yorkshire,337696,53.91667,-0.5,2635167,United Kingdom,GB,"country, state, region,...",2650345
+192,Cherkasy,297568,49.42854,32.06207,690791,Ukraine,UA,"city, village,...",710791
+193,Mannheim,307960,49.4891,8.46694,2921044,Germany,DE,"city, village,...",2873891
+194,Córdoba,1428214,-31.4135,-64.18105,3865483,Argentina,AR,"city, village,...",3860259
+195,East Kilbride,74740,55.76412,-4.17669,2635167,United Kingdom,GB,"city, village,...",2650405
+196,Chernihiv,307684,51.50551,31.28487,690791,Ukraine,UA,"city, village,...",710735
+197,Coventry,359262,52.40656,-1.51217,2635167,United Kingdom,GB,"city, village,...",2652221
+198,Horlivka,278550,48.33576,38.05325,690791,Ukraine,UA,"city, village,...",707753
+199,Palma,401270,39.56939,2.65024,2510769,Spain,ES,"city, village,...",2512989
+200,Hrodna,317365,53.6884,23.8258,630336,Belarus,BY,"city, village,...",627904
+201,Cologne Bonn Airport,0,50.87894,7.12292,2921044,Germany,DE,"spot, building, farm",6296510
+202,Vologda,314900,59.2239,39.88398,2017370,Russia,RU,"city, village,...",472459
+203,Varna,312770,43.21667,27.91667,732800,Bulgaria,BG,"city, village,...",726050
+204,Venice,51298,45.43713,12.33265,3175395,Italy,IT,"city, village,...",3164603
+205,Zhytomyr,282192,50.26487,28.67669,690791,Ukraine,UA,"city, village,...",686967
+206,Belfast,274770,54.59682,-5.92541,2635167,United Kingdom,GB,"city, village,...",2655984
+207,Sumy,294456,50.9216,34.80029,690791,Ukraine,UA,"city, village,...",692194
+208,Leicester,508916,52.6386,-1.13169,2635167,United Kingdom,GB,"city, village,...",2644668
+209,Komsomolsk-on-Amur,275908,50.55034,137.00995,2017370,Russia,RU,"city, village,...",2021851
+210,Sunderland,335415,54.90465,-1.38222,2635167,United Kingdom,GB,"city, village,...",2636531
+211,Sandwell,322712,52.5,-2,2635167,United Kingdom,GB,"country, state, region,...",3333191
+212,Doncaster,158141,53.52285,-1.13116,2635167,United Kingdom,GB,"city, village,...",2651123
+213,Stockport,139052,53.40979,-2.15761,2635167,United Kingdom,GB,"city, village,...",2636882
+214,Sefton,274261,53.5,-3,2635167,United Kingdom,GB,"country, state, region,...",3333192
+215,Kostroma,277656,57.76647,40.92686,2017370,Russia,RU,"city, village,...",543878
+216,Vigo,297332,42.23282,-8.72264,2510769,Spain,ES,"city, village,...",3105976
+217,Aarhus,237551,56.15674,10.21076,2623032,Denmark,DK,"city, village,...",2624652
+218,Brest,300715,52.09755,23.68775,630336,Belarus,BY,"city, village,...",629634
+219,Art Volzhsky,0,48.81974,44.81995,2017370,Russia,RU,"spot, building, farm",10264834
+220,Taganrog,279056,47.23617,38.89688,2017370,Russia,RU,"city, village,...",484907
+221,Bia?ystok,291855,53.13333,23.16433,798544,Poland,PL,"city, village,...",776069
+222,Nottingham,729977,52.9536,-1.15047,2635167,United Kingdom,GB,"city, village,...",2641170
+223,Petrozavodsk,265025,61.78491,34.34691,2017370,Russia,RU,"city, village,...",509820
+224,Newcastle upon Tyne,192382,54.97328,-1.61396,2635167,United Kingdom,GB,"city, village,...",2641673
+225,Gelsenkirchen,270028,51.50508,7.09654,2921044,Germany,DE,"city, village,...",2921466
+226,Bratsk,256600,56.1325,101.61417,2017370,Russia,RU,"city, village,...",2051523
+227,Dzerzhinsk,233126,56.24143,43.45539,2017370,Russia,RU,"city, village,...",563708
+228,Surgut,300367,61.25,73.41667,2017370,Russia,RU,"city, village,...",1490624
+229,Karlsruhe,283799,49.00937,8.40444,2921044,Germany,DE,"city, village,...",2892794
+230,Orsk,246836,51.20487,58.56685,2017370,Russia,RU,"city, village,...",514734
+231,Porto,249633,41.14961,-8.61099,2264397,Portugal,PT,"city, village,...",2735943
+232,Alicante,334757,38.34517,-0.48149,2510769,Spain,ES,"city, village,...",2521978
+233,Kamianske,248575,48.51134,34.6021,690791,Ukraine,UA,"city, village,...",709932
+234,Wiesbaden,272432,50.08258,8.24932,2921044,Germany,DE,"city, village,...",2809346
+235,Kropyvnytskyi,249454,48.5132,32.2597,690791,Ukraine,UA,"city, village,...",705812
+236,Hull,314018,53.7446,-0.33525,2635167,United Kingdom,GB,"city, village,...",2645425
+237,Novi Sad,215400,45.25167,19.83694,6290252,Serbia,RS,"city, village,...",3194360
+238,Bolton,141331,53.58333,-2.43333,2635167,United Kingdom,GB,"city, village,...",2655237
+239,Angarsk,243158,52.53667,103.88639,2017370,Russia,RU,"city, village,...",2027667
+240,Sterlitamak,267231,53.62462,55.95015,2017370,Russia,RU,"city, village,...",487495
+241,Münster,270184,51.96236,7.62571,2921044,Germany,DE,"city, village,...",2867543
+242,Gijón,277554,43.53573,-5.66152,2510769,Spain,ES,"city, village,...",3121424
+243,Ljubljana,272220,46.05108,14.50513,3190538,Slovenia,SI,"city, village,...",3196359
+244,Chemnitz,247220,50.8357,12.92922,2921044,Germany,DE,"city, village,...",2940132
+245,Messina,219948,38.19394,15.55256,3175395,Italy,IT,"city, village,...",2524170
+246,Walsall,172141,52.58528,-1.98396,2635167,United Kingdom,GB,"city, village,...",2634853
+247,Stantsiya Chernovtsy-Severnaya,0,48.31809,25.91844,690791,Ukraine,UA,"spot, building, farm",710673
+248,International Airport Khmelnitsky,0,49.3597,26.9334,690791,Ukraine,UA,"spot, building, farm",7730188
+249,Malmo,301706,55.60587,13.00073,2661886,Sweden,SE,"city, village,...",2692969
+250,Cz?stochowa,248125,50.79646,19.12409,798544,Poland,PL,"city, village,...",3100946
+251,Plymouth,260203,50.37153,-4.14305,2635167,United Kingdom,GB,"city, village,...",2640194
+252,L'Hospitalet de Llobregat,257038,41.35967,2.10028,2510769,Spain,ES,"city, village,...",3120619
+253,Rotherham,117618,53.43012,-1.35678,2635167,United Kingdom,GB,"city, village,...",2639093
+254,Augsburg,259196,48.37154,10.89851,2921044,Germany,DE,"city, village,...",2954172
+255,Stoke-on-Trent,372775,53.00415,-2.18538,2635167,United Kingdom,GB,"city, village,...",2636841
+256,Halle,234107,51.48158,11.97947,2921044,Germany,DE,"city, village,...",2911522
+257,Verona,219103,45.4299,10.98444,3175395,Italy,IT,"city, village,...",3164527
+258,Gdynia,253730,54.51889,18.53188,798544,Poland,PL,"city, village,...",3099424
+259,Strasbourg,274845,48.58392,7.74553,3017382,France,FR,"city, village,...",2973783
+260,Ploie?ti,228851,44.95,26.01667,798549,Romania,RO,"city, village,...",670474
+261,Niš,250000,43.32472,21.90333,6290252,Serbia,RS,"city, village,...",787657
+262,Yoshkar-Ola,279100,56.63877,47.89078,2017370,Russia,RU,"city, village,...",466806
+263,Braunschweig,244715,52.26594,10.52673,2921044,Germany,DE,"city, village,...",2945024
+264,Nantes,277269,47.21725,-1.55336,3017382,France,FR,"city, village,...",2990969
+265,Wolverhampton,252791,52.58547,-2.12296,2635167,United Kingdom,GB,"city, village,...",2633691
+266,Rivne,255106,50.62308,26.22743,690791,Ukraine,UA,"city, village,...",695594
+267,Tirana,374801,41.3275,19.81889,783754,Albania,AL,"city, village,...",3183875
+268,Aachen,265208,50.77664,6.08342,2921044,Germany,DE,"city, village,...",3247449
+269,Sosnowiec,227295,50.28682,19.10385,798544,Poland,PL,"city, village,...",3085128
+270,Grenada,107818,12.11667,-61.66667,3580239,Grenada,GD,"country, state, region,...",3580239
+271,Košice,236563,48.71395,21.25808,3057568,Slovakia,SK,"city, village,...",724443
+272,Krefeld,237984,51.33645,6.55381,2921044,Germany,DE,"city, village,...",2884509
+273,Rybinsk,216724,58.0446,38.84259,2017370,Russia,RU,"city, village,...",500004
+274,A Coruña,246056,43.37135,-8.396,2510769,Spain,ES,"city, village,...",3119841
+275,Taff's Well,0,51.54278,-3.2725,2635167,United Kingdom,GB,"city, village,...",2636326
+276,Kremenchuk,227494,49.06802,33.42041,690791,Ukraine,UA,"city, village,...",704147
+277,Nizhnevartovsk Airport,0,60.94927,76.48362,2017370,Russia,RU,"spot, building, farm",6301001
+278,Graz,222326,47.06667,15.45,2782113,Austria,AT,"city, village,...",2778067
+279,Prokopyevsk,219000,53.9059,86.719,2017370,Russia,RU,"city, village,...",1494114
+280,Severodvinsk,194292,64.5635,39.8302,2017370,Russia,RU,"city, village,...",496285
+281,South Gloucestershire,277623,51.5,-2.41667,2635167,United Kingdom,GB,"country, state, region,...",3333198
+282,Magdeburg,229826,52.12773,11.62916,2921044,Germany,DE,"city, village,...",2874545
+283,Ivano-Frankivsk,204200,48.9215,24.70972,690791,Ukraine,UA,"city, village,...",707471
+284,Kiel,232758,54.32133,10.13489,2921044,Germany,DE,"city, village,...",2891122
+285,Br?ila,213569,45.26667,27.98333,798549,Romania,RO,"city, village,...",683902
+286,Derby,270468,52.92277,-1.47663,2635167,United Kingdom,GB,"city, village,...",2651347
+287,Utrecht,290529,52.09083,5.12222,2750405,Netherlands,NL,"city, village,...",2745912
+288,Ternopil,235676,49.55342,25.58918,690791,Ukraine,UA,"city, village,...",691650
+289,Radom,226794,51.40253,21.14714,798544,Poland,PL,"city, village,...",760778
+290,Ghent,231493,51.05,3.71667,2802361,Belgium,BE,"city, village,...",2797656
+291,Swansea,300352,51.62079,-3.94323,2635167,United Kingdom,GB,"city, village,...",2636432
+292,Nalchik,0,43.51278,43.63667,2017370,Russia,RU,"spot, building, farm",6300992
+293,Syktyvkar,230139,61.67642,50.80994,2017370,Russia,RU,"city, village,...",485239
+294,Veliky Novgorod,215062,58.52131,31.27104,2017370,Russia,RU,"city, village,...",519336
+295,Salford,72750,53.48771,-2.29042,2635167,United Kingdom,GB,"city, village,...",2638671
+296,Bergen,213585,60.39299,5.32415,3144096,Norway,NO,"city, village,...",3161732
+297,Bennachie,0,57.28333,-2.56667,2635167,United Kingdom,GB,"mountain,hill,rock,... ",2655892
+298,Barnsley,71447,53.55,-1.48333,2635167,United Kingdom,GB,"city, village,...",2656284
+299,Biysk,215430,52.53639,85.20722,2017370,Russia,RU,"city, village,...",1510018
+300,Nizhnekamsk,234297,55.63657,51.82447,2017370,Russia,RU,"city, village,...",521118
+301,Trieste,187056,45.64953,13.77678,3175395,Italy,IT,"city, village,...",3165185
+302,Oberhausen,219176,51.47805,6.8625,2921044,Germany,DE,"city, village,...",2860410
+303,Oradea,206614,47.0458,21.91833,798549,Romania,RO,"city, village,...",671768
+304,Shakhty,221312,47.70911,40.21443,2017370,Russia,RU,"city, village,...",496015
+305,Tameside,223189,53.5,-2.08333,2635167,United Kingdom,GB,"country, state, region,...",3333208
+306,Babruysk,220517,53.1384,29.2214,630336,Belarus,BY,"city, village,...",630468
+307,Oldham,104782,53.54051,-2.1183,2635167,United Kingdom,GB,"city, village,...",2641022
+308,Blagoveshchensk,221296,50.27961,127.5405,2017370,Russia,RU,"city, village,...",2026609
+309,Trafford,234673,53.41667,-2.33333,2635167,United Kingdom,GB,"country, state, region,...",3333211
+310,Aberdeen,196670,57.14369,-2.09814,2635167,United Kingdom,GB,"city, village,...",2657832
+311,Lutsk,213661,50.75932,25.34244,690791,Ukraine,UA,"city, village,...",702569
+312,Vitoria-Gasteiz,235661,42.84998,-2.67268,2510769,Spain,ES,"city, village,...",3104499
+313,Southampton,246201,50.90395,-1.40428,2635167,United Kingdom,GB,"city, village,...",2637487
+314,Lybeck,277,59.52974,16.71865,2661886,Sweden,SE,"city, village,...",2693394
+315,Padua,203725,45.40797,11.88586,3175395,Italy,IT,"city, village,...",3171728
+316,Urochishche Belaya Tserkov’,0,44.71907,133.20716,2017370,Russia,RU,"parks,area, ...",2026919
+317,Taranto,181082,40.46438,17.24707,3175395,Italy,IT,"city, village,...",3165926
+318,Stary Oskol,226977,51.29667,37.84167,2017370,Russia,RU,"city, village,...",487928
+319,Kielce,208598,50.87033,20.62752,798544,Poland,PL,"city, village,...",769250
+320,Gliwice,198835,50.29761,18.67658,798544,Poland,PL,"city, village,...",3099230
+321,Badalona,219547,41.45004,2.24741,2510769,Spain,ES,"city, village,...",3129028
+322,Bordeaux,231844,44.84044,-0.5805,3017382,France,FR,"city, village,...",3031582
+323,Bac?u,171396,46.56718,26.91384,798549,Romania,RO,"city, village,...",685948
+324,Highland,234770,57.5,-5,2635167,United Kingdom,GB,"country, state, region,...",2646944
+325,Montpellier,248252,43.61092,3.87723,3017382,France,FR,"city, village,...",2992166
+326,Balakovo,199572,52.02782,47.8007,2017370,Russia,RU,"city, village,...",579492
+327,Rochdale,97550,53.61766,-2.1552,2635167,United Kingdom,GB,"city, village,...",2639272
+328,Zelenograd,215727,55.9825,37.18139,2017370,Russia,RU,"city, village,...",463829
+329,Espoo,256760,60.2052,24.6522,660013,Finland,FI,"city, village,...",660158
+330,Charleroi,200132,50.41136,4.44448,2802361,Belgium,BE,"city, village,...",2800481
+331,Toru?,208717,53.01375,18.59814,798544,Poland,PL,"city, village,...",3083271
+332,Mt Hagen,33623,-5.85746,144.23058,2088628,Papua New Guinea,PG,"city, village,...",2090409
+333,Bytom,189186,50.34802,18.93282,798544,Poland,PL,"city, village,...",3101950
+334,Novorossiysk,241856,44.72439,37.76752,2017370,Russia,RU,"city, village,...",518255
+335,Debrecen,204124,47.53333,21.63333,719819,Hungary,HU,"city, village,...",721472
+336,Solihull,96267,52.41426,-1.78094,2635167,United Kingdom,GB,"city, village,...",2637546
+337,Rostock,198293,54.0887,12.14049,2921044,Germany,DE,"city, village,...",2844588
+338,Linz,204846,48.30639,14.28611,2782113,Austria,AT,"city, village,...",2772400
+339,Tenerife,222417,28.46824,-16.25462,2510769,Spain,ES,"city, village,...",2511174
+340,Klaip?da,192307,55.70888,21.14312,597427,Lithuania,LT,"city, village,...",598098
+341,Freiburg,215966,47.9959,7.85222,2921044,Germany,DE,"city, village,...",2925177
+342,Pskov,201990,57.8136,28.3496,2017370,Russia,RU,"city, village,...",504341
+343,Erfurt,203254,50.9787,11.03283,2921044,Germany,DE,"city, village,...",2929670
+344,Gateshead,77649,54.96209,-1.60168,2635167,United Kingdom,GB,"city, village,...",2648773
+345,Eindhoven,209620,51.44083,5.47778,2750405,Netherlands,NL,"city, village,...",2756253
+346,Split,176314,43.50891,16.43915,3202326,Croatia,HR,"city, village,...",3190261
+347,Zabrze,192177,50.32492,18.78576,798544,Poland,PL,"city, village,...",3080985
+348,Saint-Etienne,176280,45.43389,4.39,3017382,France,FR,"city, village,...",2980291
+349,Oviedo,224005,43.36029,-5.84476,2510769,Spain,ES,"city, village,...",3114711
+350,Petropavlovsk-Kamchatskiy,187282,53.04444,158.65076,2017370,Russia,RU,"city, village,...",2122104
+351,Zlatoust,191366,55.17111,59.65083,2017370,Russia,RU,"city, village,...",462444
+352,Rennes,209375,48.11198,-1.67429,3017382,France,FR,"city, village,...",2983990
+353,Milton Keynes,229941,52.04172,-0.75583,2635167,United Kingdom,GB,"city, village,...",2642465
+354,Yakutsk,235600,62.03389,129.73306,2017370,Russia,RU,"city, village,...",2013159
+355,Kassel,194501,51.31667,9.5,2921044,Germany,DE,"city, village,...",2892518
+356,Móstoles,206478,40.32234,-3.86496,2510769,Spain,ES,"city, village,...",3116025
+357,Banja Luka,221106,44.77842,17.19386,3277605,Bosnia and Herzegovina,BA,"city, village,...",3204541
+358,Le Havre,185972,49.4938,0.10767,3017382,France,FR,"city, village,...",3003796
+359,Liège,182597,50.63373,5.56749,2802361,Belgium,BE,"city, village,...",2792413
+360,Burgas,195966,42.50606,27.46781,732800,Bulgaria,BG,"city, village,...",732770
+361,Podolsk,179400,55.42419,37.55472,2017370,Russia,RU,"city, village,...",508101
+362,North Tyneside,203307,55.03333,-1.5,2635167,United Kingdom,GB,"country, state, region,...",2641238
+363,Calderdale,209770,53.7,-2,2635167,United Kingdom,GB,"country, state, region,...",3333137
+364,Northampton,215963,52.25,-0.88333,2635167,United Kingdom,GB,"city, village,...",2641430
+365,Tampere,202687,61.49911,23.78712,660013,Finland,FI,"city, village,...",634963
+366,Tilburg,199613,51.55551,5.0913,2750405,Netherlands,NL,"city, village,...",2746301
+367,Elche,230112,38.26218,-0.70107,2510769,Spain,ES,"city, village,...",2518559
+368,Portsmouth,3633,15.58333,-61.46667,3575830,Dominica,DM,"city, village,...",3575654
+369,Kamensk-Ural'skiy,182500,56.4185,61.9329,2017370,Russia,RU,"city, village,...",1504826
+370,Brescia,184826,45.53558,10.21472,3175395,Italy,IT,"city, village,...",3181554
+371,Engel's,196011,51.48389,46.10528,2017370,Russia,RU,"city, village,...",563464
+372,Warrington,165456,53.39254,-2.58024,2635167,United Kingdom,GB,"city, village,...",2634739
+373,Uppsala,149245,59.85882,17.63889,2661886,Sweden,SE,"city, village,...",2666199
+374,Kramatorsk,173700,48.72305,37.55629,690791,Ukraine,UA,"city, village,...",704508
+375,Pite?ti,167669,44.85,24.86667,798549,Romania,RO,"city, village,...",670609
+376,Syzran',189338,53.1585,48.4681,2017370,Russia,RU,"city, village,...",484972
+377,Sabadell,206493,41.54329,2.10942,2510769,Spain,ES,"city, village,...",3111199
+378,Somerset Island,0,73.25144,-93.5003,6251999,Canada,CA,"mountain,hill,rock,... ",6151201
+379,Arad,169065,46.18333,21.31667,798549,Romania,RO,"city, village,...",686254
+380,Novocherkassk,166974,47.42096,40.09185,2017370,Russia,RU,"city, village,...",518970
+381,Saarbrücken,181227,49.23262,7.00982,2921044,Germany,DE,"city, village,...",2842647
+382,Odense,145931,55.39594,10.38831,2623032,Denmark,DK,"city, village,...",2615876
+383,Mainz,184997,49.98419,8.2791,2921044,Germany,DE,"city, village,...",2874225
+384,Berezniki,167748,59.4091,56.8204,2017370,Russia,RU,"city, village,...",577206
+385,Santander,182700,43.46472,-3.80444,2510769,Spain,ES,"city, village,...",3109718
+386,Piraeus,163688,37.94745,23.63708,390903,Greece,GR,"city, village,...",255274
+387,Jerez de la Frontera,207532,36.68645,-6.13606,2510769,Spain,ES,"city, village,...",2516326
+388,Bury,61044,53.6,-2.3,2635167,United Kingdom,GB,"city, village,...",2654187
+389,Hamm,185327,51.68033,7.82089,2921044,Germany,DE,"city, village,...",2911240
+390,Luton,258018,51.87967,-0.41748,2635167,United Kingdom,GB,"city, village,...",2643339
+391,Kragujevac,147473,44.01667,20.91667,6290252,Serbia,RS,"city, village,...",789128
+392,Reims,196565,49.25,4.03333,3017382,France,FR,"city, village,...",2984114
+393,Bielsko-Biala,176515,49.82245,19.04686,798544,Poland,PL,"city, village,...",3103402
+394,Reggio Calabria,169140,38.11047,15.66129,3175395,Italy,IT,"city, village,...",2523630
+395,Volgodonsk,167731,47.51361,42.15139,2017370,Russia,RU,"city, village,...",472761
+396,St Helens,102555,53.45,-2.73333,2635167,United Kingdom,GB,"city, village,...",2638785
+397,Stockton-on-Tees,79957,54.56848,-1.3187,2635167,United Kingdom,GB,"city, village,...",2636876
+398,East Renfrewshire,93810,55.75,-4.33333,2635167,United Kingdom,GB,"country, state, region,...",3333228
+399,San Sebastian,185357,43.31283,-1.97499,2510769,Spain,ES,"city, village,...",3110044
+400,Yuzhno-Sakhalinsk,176484,46.95407,142.73603,2017370,Russia,RU,"city, village,...",2119441
+401,Herne,172108,51.5388,7.22572,2921044,Germany,DE,"city, village,...",2905891
+402,Vantaa,190058,60.29414,25.04099,660013,Finland,FI,"city, village,...",632453
+403,York,153717,53.95763,-1.08271,2635167,United Kingdom,GB,"city, village,...",2633352
+404,Modena,158886,44.64783,10.92539,3175395,Italy,IT,"city, village,...",3173331
+405,Thamesdown,0,51.5,-1.75,2635167,United Kingdom,GB,"country, state, region,...",2636061
+406,Leganés,186066,40.32718,-3.7635,2510769,Spain,ES,"city, village,...",3118594
+407,Mülheim,171000,51.43218,6.87967,2921044,Germany,DE,"city, village,...",2867838
+408,Cagliari,149257,39.23054,9.11917,3175395,Italy,IT,"city, village,...",2525473
+409,Miskolc,172637,48.1,20.78333,719819,Hungary,HU,"city, village,...",717582
+410,Geneva,183981,46.20222,6.14569,2658434,Switzerland,CH,"city, village,...",2660646
+411,Southend-on-Sea,295310,51.53782,0.71433,2635167,United Kingdom,GB,"city, village,...",2637433
+412,Groningen,181194,53.21917,6.56667,2750405,Netherlands,NL,"city, village,...",2755251
+413,Lille,228328,50.63297,3.05858,3017382,France,FR,"city, village,...",2998324
+414,Turku,175945,60.45148,22.26869,660013,Finland,FI,"city, village,...",633679
+415,Olsztyn,171803,53.77995,20.49416,798544,Poland,PL,"city, village,...",763166
+416,Almería,188810,36.83814,-2.45974,2510769,Spain,ES,"city, village,...",2521886
+417,Cartagena,952024,10.39972,-75.51444,3686110,Colombia,CO,"city, village,...",3687238
+418,Melitopol,158000,46.84891,35.36533,690791,Ukraine,UA,"city, village,...",701404
+419,Basel,164488,47.55839,7.57327,2658434,Switzerland,CH,"city, village,...",2661604
+420,Sibiu,151894,45.8,24.15,798549,Romania,RO,"city, village,...",667268
+421,New Forest,1980,17.9201,-77.55867,3489940,Jamaica,JM,"country, state, region,...",11495571
+422,Caerphilly,31060,51.57452,-3.218,2635167,United Kingdom,GB,"city, village,...",2654089
+423,Carmarthenshire,185610,51.83333,-4.16667,2635167,United Kingdom,GB,"country, state, region,...",2653753
+424,Prato,181820,43.8805,11.09699,3175395,Italy,IT,"city, village,...",3169921
+425,Pilsen,164180,49.74747,13.37759,3077311,Czechia,CZ,"city, village,...",3068160
+426,Abakan,167289,53.71556,91.42917,2017370,Russia,RU,"city, village,...",1512236
+427,Rijeka,141172,45.32673,14.44241,3202326,Croatia,HR,"city, village,...",3191648
+428,Toulon,168701,43.12442,5.92836,3017382,France,FR,"city, village,...",2972328
+429,Parma,146299,44.79935,10.32618,3175395,Italy,IT,"city, village,...",3171457
+430,Baranovichi,168772,53.1327,26.0139,630336,Belarus,BY,"city, village,...",630429
+431,Kerch,148932,45.3531,36.47429,690791,Ukraine,UA,"city, village,...",706524
+432,Rousse,156238,43.85639,25.97083,732800,Bulgaria,BG,"city, village,...",727523
+433,Maykop,144055,44.60778,40.10583,2017370,Russia,RU,"city, village,...",528293
+434,Miass,167500,55.045,60.10833,2017370,Russia,RU,"city, village,...",1498894
+435,Solingen,164359,51.17343,7.0845,2921044,Germany,DE,"city, village,...",2831580
+436,Târgu Mure?,146863,46.54245,24.55747,798549,Romania,RO,"city, village,...",665004
+437,Bath,94782,51.3751,-2.36172,2635167,United Kingdom,GB,"city, village,...",2656173
+438,Osnabrück,166462,52.27264,8.0498,2921044,Germany,DE,"city, village,...",2856883
+439,Livorno,153773,43.54427,10.32615,3175395,Italy,IT,"city, village,...",3174659
+440,Lyubertsy,154650,55.67719,37.89322,2017370,Russia,RU,"city, village,...",532615
+441,High Wycombe,133204,51.62907,-0.74934,2635167,United Kingdom,GB,"city, village,...",2646914
+442,Terrassa,210941,41.56667,2.01667,2510769,Spain,ES,"city, village,...",3108286
+443,Armavir,25963,40.15446,44.03815,174982,Armenia,AM,"city, village,...",616631
+444,Ludwigshafen am Rhein,163196,49.48121,8.44641,2921044,Germany,DE,"city, village,...",2875376
+445,Fuenlabrada,197836,40.28419,-3.79415,2510769,Spain,ES,"city, village,...",3121960
+446,Podgorica,136473,42.44111,19.26361,3194884,Montenegro,ME,"city, village,...",3193044
+447,Alcalá de Henares,204574,40.48205,-3.35996,2510769,Spain,ES,"city, village,...",3130616
+448,Basildon,144859,51.56844,0.45782,2635167,United Kingdom,GB,"city, village,...",2656194
+449,Rubtsovsk,161065,51.51473,81.20613,2017370,Russia,RU,"city, village,...",1493467
+450,Pamplona,198491,42.81687,-1.64323,2510769,Spain,ES,"city, village,...",3114472
+451,Burgos,178966,42.34106,-3.70184,2510769,Spain,ES,"city, village,...",3127461
+452,Leskovac,94758,42.99806,21.94611,6290252,Serbia,RS,"city, village,...",788709
+453,Rzeszów,158382,50.04132,21.99901,798544,Poland,PL,"city, village,...",759734
+454,Aalborg,122219,57.048,9.9187,2623032,Denmark,DK,"city, village,...",2624886
+455,Kovrov,154224,56.35722,41.31917,2017370,Russia,RU,"city, village,...",543460
+456,Leverkusen,162738,51.0303,6.98432,2921044,Germany,DE,"city, village,...",2878234
+457,Bournemouth,163600,50.72048,-1.8795,2635167,United Kingdom,GB,"city, village,...",2655095
+458,Breda,167673,51.58656,4.77596,2750405,Netherlands,NL,"city, village,...",2758401
+459,Peterborough,163379,52.57364,-0.24777,2635167,United Kingdom,GB,"city, village,...",2640354
+460,Szeged,164883,46.253,20.14824,719819,Hungary,HU,"city, village,...",715429
+461,Nakhodka,146920,42.81384,132.87348,2017370,Russia,RU,"city, village,...",2019528
+462,Grimsby,134160,53.56539,-0.07553,2635167,United Kingdom,GB,"city, village,...",2647878
+463,Ruda ?l?ska,146189,50.2584,18.85632,798544,Poland,PL,"city, village,...",3086800
+464,Salamanca,155619,40.96882,-5.66388,2510769,Spain,ES,"city, village,...",3111108
+465,Pécs,156649,46.08333,18.23333,719819,Hungary,HU,"city, village,...",3046526
+466,Salavat,159893,53.38365,55.90773,2017370,Russia,RU,"city, village,...",499292
+467,Ussuriysk,157068,43.80291,131.94578,2017370,Russia,RU,"city, village,...",2014006
+468,Mytishchi,160542,55.91163,37.73076,2017370,Russia,RU,"city, village,...",523812
+469,Chelmsford,111511,51.73575,0.46958,2635167,United Kingdom,GB,"city, village,...",2653266
+470,Foggia,137032,41.45845,15.55188,3175395,Italy,IT,"city, village,...",3176885
+471,Brighton,139001,50.82838,-0.13947,2635167,United Kingdom,GB,"city, village,...",2654710
+472,South Tyneside,149418,54.95,-1.41667,2635167,United Kingdom,GB,"country, state, region,...",3333199
+473,Makiyivka,376610,48.04782,37.92576,690791,Ukraine,UA,"city, village,...",702320
+474,Aylesbury,74748,51.81665,-0.81458,2635167,United Kingdom,GB,"city, village,...",2656719
+475,Colchester,121859,51.88921,0.90421,2635167,United Kingdom,GB,"city, village,...",2652618
+476,Oldenburg,159218,53.14118,8.21467,2921044,Germany,DE,"city, village,...",2857458
+477,Knowsley,147915,53.41667,-2.83333,2635167,United Kingdom,GB,"country, state, region,...",3333162
+478,Pátrai,168034,38.24444,21.73444,390903,Greece,GR,"city, village,...",255683
+479,Apeldoorn,136670,52.21,5.96944,2750405,Netherlands,NL,"city, village,...",2759706
+480,Scunthorpe,79977,53.57905,-0.65437,2635167,United Kingdom,GB,"city, village,...",2638324
+481,Huntingdon,23937,52.33049,-0.18651,2635167,United Kingdom,GB,"city, village,...",2646393
+482,Macclesfield,63954,53.26023,-2.12564,2635167,United Kingdom,GB,"city, village,...",2643266
+483,Blackpool,239409,53.81667,-3.05,2635167,United Kingdom,GB,"city, village,...",2655459
+484,Perugia,120137,43.1122,12.38878,3175395,Italy,IT,"city, village,...",3171180
+485,Nijmegen,158732,51.8425,5.85278,2750405,Netherlands,NL,"city, village,...",2750053
+486,B?l?i,125000,47.76314,27.92932,617790,Moldova,MD,"city, village,...",618605
+487,Kolomna,147690,55.07944,38.77833,2017370,Russia,RU,"city, village,...",546230
+488,Grenoble,158552,45.17155,5.72239,3017382,France,FR,"city, village,...",3014728
+489,West Lothian,180130,55.91667,-3.5,2635167,United Kingdom,GB,"country, state, region,...",2634354
+490,Borisov,143919,54.2279,28.505,630336,Belarus,BY,"city, village,...",630376
+491,Somerset,26470,38.08007,-75.85347,6252001,United States,US,"country, state, region,...",4369894
+492,Dundee,147710,56.46913,-2.97489,2635167,United Kingdom,GB,"city, village,...",2650752
+493,Nikopol',130500,47.57119,34.39637,690791,Ukraine,UA,"city, village,...",700051
+494,Neuss,152457,51.19807,6.68504,2921044,Germany,DE,"city, village,...",2864118
+495,Baia Mare,136553,47.65729,23.56808,798549,Romania,RO,"city, village,...",685826
+496,Enschede,153655,52.21833,6.89583,2750405,Netherlands,NL,"city, village,...",2756071
+497,Noril'sk,140800,69.3535,88.2027,2017370,Russia,RU,"city, village,...",1497337
+498,Naberezhnye Chelny,509870,55.72545,52.41122,2017370,Russia,RU,"city, village,...",523750
+499,Mönchengladbach,261742,51.18539,6.44172,2921044,Germany,DE,"city, village,...",2869894
+500,Somerset,549447,51.08333,-3,2635167,United Kingdom,GB,"country, state, region,...",2637532

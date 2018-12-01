@@ -1,0 +1,12 @@
+,name,population,lat,lng,countryId,countryName,countryCode,fclName,geonameId
+0,Moscow,10381222,55.75222,37.61556,2017370,Russia,RU,"city, village,...",524901
+1,London,7556900,51.50853,-0.12574,2635167,United Kingdom,GB,"city, village,...",2643743
+2,St Petersburg,5028000,59.93863,30.31413,2017370,Russia,RU,"city, village,...",498817
+3,Berlin,3426354,52.52437,13.41053,2921044,Germany,DE,"city, village,...",2950159
+4,Madrid,3255944,40.4165,-3.70256,2510769,Spain,ES,"city, village,...",3117735
+5,Rome,2318895,41.89193,12.51133,3175395,Italy,IT,"city, village,...",3169070
+6,Kyiv,2797553,50.45466,30.5238,690791,Ukraine,UA,"city, village,...",703448
+7,Paris,2138551,48.85341,2.3488,3017382,France,FR,"city, village,...",2988507
+8,Bucharest,1877155,44.43225,26.10626,798549,Romania,RO,"city, village,...",683506
+9,Budapest,1741041,47.49801,19.03991,719819,Hungary,HU,"city, village,...",3054643
+10,Hamburg,1739117,53.57532,10.01534,2921044,Germany,DE,"city, village,...",2911298
