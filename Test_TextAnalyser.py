@@ -1,5 +1,10 @@
 from TextAnalyser import TextAnalyser
 
 t = TextAnalyser()
-t.CreateFiles_WithEnglishReviewsOnly()
-#t.tester()
+#t.CreateFiles_WithEnglishReviewsOnly()
+#t.GetPositiveNegative_Experiences_PerCity()
+#print(t.readFile('Language_count_dict.pickle'))
+#t.ParseReviews()
+#t.CreateInvertedIndex()
+t.GetCityWordclouds()
+#t.expandNamesList('names.csv')
