@@ -9,8 +9,8 @@ t = TextAnalyser()
 #t.GetCityWordclouds()
 #t.expandNamesList('names.csv')
 #t.CalculateAVGCitySentiment()
-t.CalculateSentimentofEachReview()
-#t.test()
+#t.CalculateSentimentofEachReview()
+t.test()
 
 
 

@@ -266,8 +266,9 @@ class TextAnalyser:
         self.writeFile(self.AvgCitySentiment[city], 'AvgCitySentiment_dict.pickle')
 
 
-    def CalculateSentimentofEachReview (self, Tblob = False, path = DATA_PATH_ENGLISH):
-    # creates dictionary with keys : review id (which we can then link to each specific user) and review sentiment as values
+    def CalculateSentimentofEachReview (self, path = DATA_PATH_ENGLISH):
+    # creates dictionary with keys : review id (which we can then link to each specific user) and review sentiment as value
+    #False as a value means the review had no relevant words to do sentiment analysis on, None means no English
 
         self.SentimentPerReview = defaultdict(float)
         SentimentDataSet = pandas.read_csv('data/SentimentAnalysis/Data_Set_S1.csv')
@@ -294,16 +295,23 @@ class TextAnalyser:
 
 
                     Sentiment = float(0)
+                    divide_by = 0
                     for word in words:
                         if word in list(SentimentDataSet['word']):
-                            Sentiment += SentimentDataSet['happiness_average'][np.where(SentimentDataSet["word"] == word)[0][0]] * words.count(word)
+                            Sentiment += SentimentDataSet['happiness_average'][np.where(SentimentDataSet["word"] == word)[0][0]] 
+                            divide_by += 1
 
-                    if len(words) != 0:
-                        Sentiment /= len(words)
+                    if divide_by != 0:
+                   
+                        Sentiment /= divide_by
                         self.SentimentPerReview[row['id']] = Sentiment  
-                    else: 
-                        self.SentimentPerReview[row['id']] = False  
-                         
+
+                    else:
+                        self.SentimentPerReview[row['id']] = False
+
+                    if Sentiment > 8:
+                        print(row['text'])
+                                           
                 else:
                     self.SentimentPerReview[row['id']] = None     
                 
@@ -319,30 +327,127 @@ class TextAnalyser:
     #takes previously created dictionary and creates a new one that user is the keys, as values we will have another dictionary that has overall average sentiment on the reviews for that user
     # the average sentiment received as a surfer and the average sentiment received as a host
 
-        if len(self.self.SentimentPerReview) == 0:
-            self.self.SentimentPerReview = self.readFile('SentimentPerReview_Dict.pickle.pickle')
+        if len(self.SentimentPerReview) == 0:
+            self.SentimentPerReview = self.readFile('SentimentPerReview_Dict.pickle.pickle')
 
-        Concatinated_Revi
-        for user
+        self.SentimentPerUser = {}
+        ValueDictionary = defaultdict(float)
+        ReviewsOfEachUser = defaultdict(list)
+        ReviewsOfEachUser_asHost = defaultdict(list)
+        ReviewsOfEachUser_asSurfer = defaultdict(list)
+        ConcatinatedReviews_DataFrame = pandas.read_csv('data/Top50/concatinated_reviews.csv')
+        TimesUserWasReviewed = defaultdict(float)
+        TimesUserWasReviewed_asHost = defaultdict(float)
+        TimesUserWasReviewed_asSurfer = defaultdict(float)
         
+        #get review ID's of each user
+        #get amount of times user was reviewed both in general and as a surfer and as a host
+        for index, row in ConcatinatedReviews_DataFrame.iterrows():
+            ReviewsOfEachUser[row['to']].append(row['id'])
+            TimesUserWasReviewed[row['to']] += 1
+            if row['relationshipType'] == 'surf':
+                TimesUserWasReviewed_asHost[row['to']] += 1
+                ReviewsOfEachUser_asHost[row['to']].append(row['id'])
+                
+            elif row['relationshipType'] == 'host':
+                TimesUserWasReviewed_asSurfer[row['to']] += 1
+                ReviewsOfEachUser_asSurfer[row['to']].append(row['id'])
+
+        for user in ReviewsOfEachUser.keys():
+            UserValueDictionary = defaultdict(float)
+            for review in ReviewsOfEachUser[user]:
+                UserValueDictionary['overall'] += self.SentimentPerReview[review]
+                if review in ReviewsOfEachUser_asHost[user]:
+                    UserValueDictionary['as_Host'] += self.SentimentPerReview[review]
+                elif review in ReviewsOfEachUser_asSurfer[user]:
+                    userValueDictionary['as_Surfer'] += self.SentimentPerReview[review]
+
+            UserValueDictionary['overall'] /= TimesUserWasReviewed[user]
+            if  UserValueDictionary['as_Host'] > 0:
+                UserValueDictionary['as_Host'] /= TimesUserWasReviewed_asHost[user]
+            if UserValueDictionary['as_Surfer'] > 0:
+                UserValueDictionary['as_Surfer'] /= TimesUserWasReviewed_asSurfer[user] 
+                
+            self.SentimentPerUser[user] = UserValueDictionary
+
+            
+
+
+            
+
+   # def plotEvolutionOfSentimentOvertime:
 
 
 
 
 
+
+    def test (self, path = DATA_PATH): 
         
+        self.SentimentPerReview = self.readFile('SentimentPerReview_Dict.pickle')
+        ConcatinatedReviews_DataFrame = pandas.read_csv('data/Top50/concatinated_reviews.csv')
+        SentimentPerReview_Copy = defaultdict(float)
+
+        for review, sentiment in self.SentimentPerReview.items():
+            if sentiment != None and sentiment != False:
+               SentimentPerReview_Copy[review] = sentiment
+            
+
+        print(sorted(SentimentPerReview_Copy.items(), key = lambda kv: kv[1], reverse = False)[0:50])
+
+    def test1 (self, path = DATA_PATH): 
+
+        dictionario = self.readFile('Language_count_dict.pickle')
+        print(dictionario)
+
+    def test2 (self, file = 'data/reviews_total_geo_2_test.csv'):
+
+        df = pandas.read_csv(file)
+        StopWords = set(stopwords.words('english'))
+        Punctuation = set(string.punctuation)    
+        SentimentDataSet = pandas.read_csv('data/SentimentAnalysis/Data_Set_S1.csv')
+        #print(df)
+        for index,row in df.iterrows():
+                    
+            if row['text'] != '0':
+                    words = []
+                    tokens = word_tokenize(row['text'])
+
+                    for word in tokens:
+                        word = word.lower()
+                        if not bool(re.search("[^A-Za-z]",word)) and word not in StopWords:
+                            words.append(word)
+                            
+                    #print(words)
+                    #print(len(words)) 
+
+
+                    Sentiment = float(0)
+                    divide_by = 0
+                    for word in words:
+                        if word in list(SentimentDataSet['word']):
+                            #print(word)
+                            Sentiment += SentimentDataSet['happiness_average'][np.where(SentimentDataSet["word"] == word)[0][0]] 
+                            divide_by += 1
+                    print(Sentiment)
+
+              
+                    Sentiment /= divide_by
+
+                    print(Sentiment)
+             
+                        
+                
+                        
+                
+                
+               
+            
 
 
 
-        #return sentimentscore
-
-
-    #def CalculateAVGSentimentPerCity:
 
 
 
 
 
-
-
-    
