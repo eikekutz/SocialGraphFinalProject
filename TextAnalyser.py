@@ -267,7 +267,7 @@ class TextAnalyser:
 
 
     def CalculateSentimentofEachReview (self, Tblob = False, path = DATA_PATH_ENGLISH):
-    # takes the previous built dictionary and outputs a dictionary cointaining the average sentiment per city
+    # creates dictionary with keys : review id (which we can then link to each specific user) and review sentiment as values
 
         self.SentimentPerReview = defaultdict(float)
         SentimentDataSet = pandas.read_csv('data/SentimentAnalysis/Data_Set_S1.csv')
@@ -315,11 +315,16 @@ class TextAnalyser:
         self.writeFile(self.SentimentPerReview, 'SentimentPerReview_Dict.pickle')
                                        
         
-    def test (self):
+    def CreateDictionaryforSentimentPerUser (self):
+    #takes previously created dictionary and creates a new one that user is the keys, as values we will have another dictionary that has overall average sentiment on the reviews for that user
+    # the average sentiment received as a surfer and the average sentiment received as a host
 
-        SentimentDataSet = pandas.read_csv('data/SentimentAnalysis/Data_Set_S1.csv')
-        print(np.where(SentimentDataSet["word"] == 'laugh')[0][0])
+        if len(self.self.SentimentPerReview) == 0:
+            self.self.SentimentPerReview = self.readFile('SentimentPerReview_Dict.pickle.pickle')
 
+        Concatinated_Revi
+        for user
+        
 
 
 
