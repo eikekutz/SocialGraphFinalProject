@@ -18,6 +18,8 @@ from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 import matplotlib.pyplot as plt
 import matplotlib
 from nameparser import HumanName
+import numpy as np
+import string
 
 
 class TextAnalyser:
@@ -27,6 +29,8 @@ class TextAnalyser:
     DATA_PATH_ENGLISH = 'data/Top50/reviews/English_Only'
     DATA_PATH_PICKLES = 'data/Top50/reviews/Pickles'
     DATA_PATH_NAMES = 'data/Top50/reviews/Names'
+    citynames = [f[:-19] for f in os.listdir(DATA_PATH_ENGLISH)]
+    fileNamesEnglishOnly = [f for f in os.listdir(DATA_PATH_ENGLISH)]
 
     def __init__(self):
 
@@ -226,7 +230,112 @@ class TextAnalyser:
     #def getSpecificUsersWordclouds
     #def getTopHostsWordcloudsFor Reviews Received
 
-    def CalculateSentiment:
+    def CalculateAVGCitySentiment(self, Tblob = False, path = DATA_PATH_ENGLISH):
+    # takes the previous built dictionary and outputs a dictionary cointaining the average sentiment per city
+
+        if len(self.WordFrequencyDistribution_PerCity) == 0:
+            self.WordFrequencyDistribution_PerCity = self.readFile('WordFrequencyDistribution_PerCity_dict.pickle')
+
+        self.AvgCitySentiment = defaultdict(float)
+        SentimentDataSet = pandas.read_csv('data/SentimentAnalysis/Data_Set_S1.csv')
+
+        for city,freqdist in self.WordFrequencyDistribution_PerCity.items():
+            
+            ListOfWordstoAnalyze = []
+            #add word the amount of times it appears
+            for word,freq in freqdist.items():
+                for i in range(freq):
+                    ListOfWordstoAnalyze.append(word)
+            
+            Sentiment = float(0)
+            i = 0
+            for index, row in SentimentDataSet.iterrows():
+                if row['word'] in ListOfWordstoAnalyze:
+                    Sentiment += row['happiness_average'] * ListOfWordstoAnalyze.count(row['word'])
+                i += 1
+                if (i%2000) == 0:
+                    print(i)
+            
+            Sentiment /= len(ListOfWordstoAnalyze)
+            self.AvgCitySentiment[city] = Sentiment 
+                
+            #ListOfWordstoAnalyze.extend([word] * frequency for word,frequency in freqdist.items())
+            print(self.AvgCitySentiment)
+            print("Done with %s" %(city))
+
+        self.writeFile(self.AvgCitySentiment[city], 'AvgCitySentiment_dict.pickle')
+
+
+    def CalculateSentimentofEachReview (self, Tblob = False, path = DATA_PATH_ENGLISH):
+    # takes the previous built dictionary and outputs a dictionary cointaining the average sentiment per city
+
+        self.SentimentPerReview = defaultdict(float)
+        SentimentDataSet = pandas.read_csv('data/SentimentAnalysis/Data_Set_S1.csv')
+        files = [f for f in os.listdir(path)]
+        StopWords = set(stopwords.words('english'))
+        Punctuation = set(string.punctuation)
+        
+        
+        for file in files:
+            CityReviews_DataFrame = pandas.read_csv(path +'/'+file, encoding='utf-8', engine='python')
+            print('Beggining %s' %(file))
+            i = 0
+            for index,row in CityReviews_DataFrame.iterrows():
+               
+                if row['text'] != '0':
+                    temp_text = "".join(word for word in row['text'] if word not in Punctuation)
+                    words = []
+                    tokens = word_tokenize(temp_text)
+
+                    for word in tokens:
+                        word = word.lower()
+                        if not bool(re.search("[^A-Za-z]",word)) and word not in StopWords:
+                            words.append(word) 
+
+
+                    Sentiment = float(0)
+                    for word in words:
+                        if word in list(SentimentDataSet['word']):
+                            Sentiment += SentimentDataSet['happiness_average'][np.where(SentimentDataSet["word"] == word)[0][0]] * words.count(word)
+
+                    if len(words) != 0:
+                        Sentiment /= len(words)
+                        self.SentimentPerReview[row['id']] = Sentiment  
+                    else: 
+                        self.SentimentPerReview[row['id']] = False  
+                         
+                else:
+                    self.SentimentPerReview[row['id']] = None     
+                
+                
+                i +=1
+                if (i%1000 == 0):
+                    (print(i))
+
+        self.writeFile(self.SentimentPerReview, 'SentimentPerReview_Dict.pickle')
+                                       
+        
+    def test (self):
+
+        SentimentDataSet = pandas.read_csv('data/SentimentAnalysis/Data_Set_S1.csv')
+        print(np.where(SentimentDataSet["word"] == 'laugh')[0][0])
+
+
+
+
+
+
+        
+
+
+
+        #return sentimentscore
+
+
+    #def CalculateAVGSentimentPerCity:
+
+
+
 
 
 
