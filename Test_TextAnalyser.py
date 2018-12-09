@@ -10,8 +10,9 @@ t = TextAnalyser()
 #t.expandNamesList('names.csv')
 #t.CalculateAVGCitySentiment()
 #t.CalculateSentimentofEachReview()
-t.test()
-
+#t.CreateDictionaryforSentimentPerUser()
+#t.Concact()
+t.plotOverallHostSurferGraph_WithVariations_BasedonSentiment()
 
 
 

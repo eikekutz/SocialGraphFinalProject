@@ -20,6 +20,7 @@ import matplotlib
 from nameparser import HumanName
 import numpy as np
 import string
+import seaborn as sns
 
 
 class TextAnalyser:
@@ -305,12 +306,8 @@ class TextAnalyser:
                    
                         Sentiment /= divide_by
                         self.SentimentPerReview[row['id']] = Sentiment  
-
                     else:
                         self.SentimentPerReview[row['id']] = False
-
-                    if Sentiment > 8:
-                        print(row['text'])
                                            
                 else:
                     self.SentimentPerReview[row['id']] = None     
@@ -322,20 +319,30 @@ class TextAnalyser:
 
         self.writeFile(self.SentimentPerReview, 'SentimentPerReview_Dict.pickle')
                                        
-        
+    def Concact(self, path = DATA_PATH_ENGLISH):
+    #concatinate new english files
+        files = [f for f in listdir(path)]
+        rev = pandas.DataFrame() #creates a new dataframe that's empty
+        for file in  files:
+            df = pandas.read_csv(path +'/'+ file ,index_col=False)
+            rev = pandas.concat([rev,df]).reset_index(drop=True)
+
+        rev=rev.drop_duplicates()
+        rev.to_csv(path + '/EnglishConcact.csv',index = False)
+
     def CreateDictionaryforSentimentPerUser (self):
     #takes previously created dictionary and creates a new one that user is the keys, as values we will have another dictionary that has overall average sentiment on the reviews for that user
     # the average sentiment received as a surfer and the average sentiment received as a host
 
-        if len(self.SentimentPerReview) == 0:
-            self.SentimentPerReview = self.readFile('SentimentPerReview_Dict.pickle.pickle')
+        
+        SentimentPerReview = self.readFile('SentimentPerReview_Dict.pickle')
 
-        self.SentimentPerUser = {}
+        SentimentPerUser = {}
         ValueDictionary = defaultdict(float)
         ReviewsOfEachUser = defaultdict(list)
         ReviewsOfEachUser_asHost = defaultdict(list)
         ReviewsOfEachUser_asSurfer = defaultdict(list)
-        ConcatinatedReviews_DataFrame = pandas.read_csv('data/Top50/concatinated_reviews.csv')
+        ConcatinatedReviews_DataFrame = pandas.read_csv('data/Top50/reviews/English_Only/EnglishConcact.csv')
         TimesUserWasReviewed = defaultdict(float)
         TimesUserWasReviewed_asHost = defaultdict(float)
         TimesUserWasReviewed_asSurfer = defaultdict(float)
@@ -343,24 +350,25 @@ class TextAnalyser:
         #get review ID's of each user
         #get amount of times user was reviewed both in general and as a surfer and as a host
         for index, row in ConcatinatedReviews_DataFrame.iterrows():
-            ReviewsOfEachUser[row['to']].append(row['id'])
-            TimesUserWasReviewed[row['to']] += 1
-            if row['relationshipType'] == 'surf':
-                TimesUserWasReviewed_asHost[row['to']] += 1
-                ReviewsOfEachUser_asHost[row['to']].append(row['id'])
-                
-            elif row['relationshipType'] == 'host':
-                TimesUserWasReviewed_asSurfer[row['to']] += 1
-                ReviewsOfEachUser_asSurfer[row['to']].append(row['id'])
+            if row['text'] != '0':
+                ReviewsOfEachUser[row['to']].append(row['id'])
+                TimesUserWasReviewed[row['to']] += 1
+                if row['relationshipType'] == 'surf':
+                    TimesUserWasReviewed_asHost[row['to']] += 1
+                    ReviewsOfEachUser_asHost[row['to']].append(row['id'])
+                    
+                elif row['relationshipType'] == 'host':
+                    TimesUserWasReviewed_asSurfer[row['to']] += 1
+                    ReviewsOfEachUser_asSurfer[row['to']].append(row['id'])
 
         for user in ReviewsOfEachUser.keys():
             UserValueDictionary = defaultdict(float)
             for review in ReviewsOfEachUser[user]:
-                UserValueDictionary['overall'] += self.SentimentPerReview[review]
+                UserValueDictionary['overall'] += SentimentPerReview[review]
                 if review in ReviewsOfEachUser_asHost[user]:
-                    UserValueDictionary['as_Host'] += self.SentimentPerReview[review]
+                    UserValueDictionary['as_Host'] += SentimentPerReview[review]
                 elif review in ReviewsOfEachUser_asSurfer[user]:
-                    userValueDictionary['as_Surfer'] += self.SentimentPerReview[review]
+                    UserValueDictionary['as_Surfer'] += SentimentPerReview[review]
 
             UserValueDictionary['overall'] /= TimesUserWasReviewed[user]
             if  UserValueDictionary['as_Host'] > 0:
@@ -368,14 +376,45 @@ class TextAnalyser:
             if UserValueDictionary['as_Surfer'] > 0:
                 UserValueDictionary['as_Surfer'] /= TimesUserWasReviewed_asSurfer[user] 
                 
-            self.SentimentPerUser[user] = UserValueDictionary
+            SentimentPerUser[user] = UserValueDictionary
+            print(SentimentPerUser)
+
+        self.writeFile(SentimentPerUser, 'SentimentPerUser.pickle')
+
+    def plotOverallHostSurferGraph_WithVariations_BasedonSentiment (self, dict ='SentimentPerUser.pickle'):
+
+        SentimentPerUser = self.readFile(dict)
+        OverallSentiment = []
+        SurfingSentiment = []
+        HostingSentiment = []
+
+        for user in SentimentPerUser.keys():
+
+            OverallSentiment.append(SentimentPerUser[user]['overall'])
+            SurfingSentiment.append(SentimentPerUser[user]['as_Surfer'])
+            HostingSentiment.append(SentimentPerUser[user]['as_Host'])
+         
+        print(sorted(SurfingSentiment[:20]))
+        #plt.figure()
+        #plt.boxplot(x= [OverallSentiment,SurfingSentiment,HostingSentiment], sym =)
+        #plt.savefig('plots/SentimentDistribution')      
+
+    
+   #but I also want to see the correlation between surf reviewns and host reviews
 
             
-
-
-            
+   # def plotOnlyHostsandSurfers (self, dict = 'SentimentPerUser.pickle'):
 
    # def plotEvolutionOfSentimentOvertime:
+
+   #seaplot: visualize linear relationships
+
+   #def plotWordcloudsOfReviewsWithBestAndWorseSentiemtn or maybe just show the reviews?
+
+   # def plotHeatMapofSimilarityBetweenCitiesTf-IDF
+
+    #plot Average Sentiment per city
+
 
 
 
@@ -436,8 +475,7 @@ class TextAnalyser:
 
                     print(Sentiment)
              
-                        
-                
+    
                         
                 
                 
