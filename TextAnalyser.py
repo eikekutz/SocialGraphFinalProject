@@ -30,6 +30,7 @@ class TextAnalyser:
     DATA_PATH_ENGLISH = 'data/Top50/reviews/English_Only'
     DATA_PATH_PICKLES = 'data/Top50/reviews/Pickles'
     DATA_PATH_NAMES = 'data/Top50/reviews/Names'
+    DATA_PATH_HOSTS = 'data/Top50/hosts'
     citynames = [f[:-19] for f in os.listdir(DATA_PATH_ENGLISH)]
     fileNamesEnglishOnly = [f for f in os.listdir(DATA_PATH_ENGLISH)]
 
@@ -319,7 +320,7 @@ class TextAnalyser:
 
         self.writeFile(self.SentimentPerReview, 'SentimentPerReview_Dict.pickle')
                                        
-    def Concact(self, path = DATA_PATH_ENGLISH):
+    def Concact(self, path = DATA_PATH_HOSTS):
     #concatinate new english files
         files = [f for f in listdir(path)]
         rev = pandas.DataFrame() #creates a new dataframe that's empty
@@ -328,7 +329,7 @@ class TextAnalyser:
             rev = pandas.concat([rev,df]).reset_index(drop=True)
 
         rev=rev.drop_duplicates()
-        rev.to_csv(path + '/EnglishConcact.csv',index = False)
+        rev.to_csv(path + '/ConcactinatedHosts.csv',index = False)
 
     def CreateDictionaryforSentimentPerUser (self):
     #takes previously created dictionary and creates a new one that user is the keys, as values we will have another dictionary that has overall average sentiment on the reviews for that user
@@ -377,7 +378,6 @@ class TextAnalyser:
                 UserValueDictionary['as_Surfer'] /= TimesUserWasReviewed_asSurfer[user] 
                 
             SentimentPerUser[user] = UserValueDictionary
-            print(SentimentPerUser)
 
         self.writeFile(SentimentPerUser, 'SentimentPerUser.pickle')
 
@@ -398,12 +398,98 @@ class TextAnalyser:
         #plt.figure()
         #plt.boxplot(x= [OverallSentiment,SurfingSentiment,HostingSentiment], sym =)
         #plt.savefig('plots/SentimentDistribution')      
-
-    
-   #but I also want to see the correlation between surf reviewns and host reviews
+        #but I also want to see the correlation between surf reviewns and host reviews
 
             
-   # def plotOnlyHostsandSurfers (self, dict = 'SentimentPerUser.pickle'):
+    def plotOnlyHostsandSurfers (self, pickle = 'SentimentPerUser.pickle', path = DATA_PATH_HOSTS + '/ConcactinatedHosts.csv'):
+    #since we only have info on the hosts of each city we can only plot, percentage wise, the members (hosts) that we have information on
+    # within europe(the cities we consider) do they tend to be hosts only surfs only or both
+        
+        SentimentPerUser = self.readFile(pickle)
+        ConcactinatedDataFrame = pandas.read_csv(path)
+
+        Host_0_count = 0
+        Surf_0_count = 0
+        users = 0
+        values = []
+       # files = [f for f in os.listdir(path)]
+        cities = []
+        screwUps = 0
+        isthere = 0
+        notThere = 0
+
+        for index,row in ConcactinatedDataFrame.iterrows():
+            print(type(int(row['id'])))
+
+        #for user in SentimentPerUser.keys():
+         #   if int(user) in list(ConcactinatedDataFrame['id']):
+          #      
+           #         if str(user) == str(ConcactinatedDataFrame['id'][np.where(ConcactinatedDataFrame['id'] == user)[0][0]]):
+                   #     isthere += 1
+
+           #     except IndexError as k:
+            #        notThere += 1
+        #print(notThere, isthere)
+                #isthere += 1
+                #if SentimentPerUser[user]['as_Host'] == 0:
+                 #   screwUps += 1
+       # print(screwUps,isthere)
+
+
+
+
+
+
+
+
+
+
+        #for file in files:
+            #City__Host_0_count = 0
+            #City_Surf_0_count = 0
+            #Number_of_
+
+            #CityReviews_DataFrame = pandas.read_csv(file)
+            #CityName = file[:-19]
+            #cities.append(CityName)
+           # for index, row in CityReviews_DataFrame.iterrows():
+                #if row['to'] in SentimentPerUser.keys():
+                    #print("N")
+            #       if SentimentPerUser[row['to']]
+
+
+
+            
+        #for user in SentimentPerUser.keys():
+            #users += 1
+            #if SentimentPerUser[user]['overall'] == 0:
+             #   Error +=1
+            #    print(SentimentPerUser[user])
+           # if SentimentPerUser[user]['as_Surfer'] == 0:
+           #     Surf_0_count += 1
+          #  if SentimentPerUser[user]['as_Host'] == 0:
+         #       Host_0_count += 1
+
+        #users -= (Surf_0_count + Host_0_count)    
+   
+        #ind = [x for x, _ in enumerate(countries)]
+
+        #plt.bar(1,users, width=0.5, label='Users who Both Surf and Host', color='gold', bottom=Surf_0_count + Host_0_count)
+        #plt.bar(1,Surf_0_count, width=0.5, label='Only Hosts', color='silver', bottom=Host_0_count)
+        #plt.bar(1,Host_0_count, width=0.5, label='Only Surfers', color='#CD853F')
+        #plt.xticks(range(1))
+        #plt.ylabel("Number of Users")
+        #plt.xlabel("Cities")
+        #plt.legend(loc="upper right")
+        #plt.title("2012 Olympics Top Scorers")
+
+       # plt.savefig("plots/test")
+
+        
+
+        
+
+   #for city and in general
 
    # def plotEvolutionOfSentimentOvertime:
 
@@ -466,7 +552,7 @@ class TextAnalyser:
                     for word in words:
                         if word in list(SentimentDataSet['word']):
                             #print(word)
-                            Sentiment += SentimentDataSet['happiness_average'][np.where(SentimentDataSet["word"] == word)[0][0]] 
+                            Sentiment += SentimentDataSet['happiness_average'][np.where(SentimentDataSet["wnpord"] == word)[0][0]] 
                             divide_by += 1
                     print(Sentiment)
 
@@ -475,8 +561,29 @@ class TextAnalyser:
 
                     print(Sentiment)
              
-    
-                        
+    def test_SentimentPerUser (self, pickle = 'SentimentPerUser.pickle'):    
+
+        SentimentPerUser = self.readFile(pickle)
+        Host_0_count = 0
+        Surf_0_count = 0
+        Error = 0
+
+        for user in SentimentPerUser.keys():
+            
+            if SentimentPerUser[user]['overall'] == 0:
+                Error +=1
+                print(SentimentPerUser[user])
+            if SentimentPerUser[user]['as_Surfer'] == 0:
+                Surf_0_count += 1
+            if SentimentPerUser[user]['as_Host'] == 0:
+                Host_0_count += 1
+
+        print(Host_0_count,Surf_0_count,Error)
+        print(len(SentimentPerUser.keys()))
+
+
+
+
                 
                 
                
