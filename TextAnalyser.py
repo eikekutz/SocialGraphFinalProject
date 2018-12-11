@@ -21,6 +21,7 @@ from nameparser import HumanName
 import numpy as np
 import string
 import seaborn as sns
+from statistics import mean
 
 
 class TextAnalyser:
@@ -30,6 +31,7 @@ class TextAnalyser:
     DATA_PATH_ENGLISH = 'data/Top50/reviews/English_Only'
     DATA_PATH_PICKLES = 'data/Top50/reviews/Pickles'
     DATA_PATH_NAMES = 'data/Top50/reviews/Names'
+    DATA_PATH_HOSTS = 'data/Top50/hosts'
     citynames = [f[:-19] for f in os.listdir(DATA_PATH_ENGLISH)]
     fileNamesEnglishOnly = [f for f in os.listdir(DATA_PATH_ENGLISH)]
 
@@ -133,21 +135,37 @@ class TextAnalyser:
         #saves dict with count of type of experiences (positive,negative,neutral per city)
         #saves dict with positive / negative  ratio per city
 
-        self.PositiveNegativeNeutral_Count = defaultdict(list)
-        self.NegativePositive_Ratio = defaultdict(float)
+        PositiveNegativeNeutral_Count = defaultdict(list)
+        NegativePositive_Ratio = defaultdict(float)
         files = [f for f in listdir(path) if os.path.isfile(path+'/'+f) == True]
         for file in files:
+            dataFrametoPlot1 = pandas.DataFrame()
             CityName = file[:-7]
             CityReviews_DataFrame = pandas.read_csv(path +'/'+ file, encoding='utf-8', engine='c')
             #experiences can be positive, negative or neutral
             for type_of_experience,  count in CityReviews_DataFrame['experience'].value_counts().items():
-                self.PositiveNegativeNeutral_Count[CityName].append((type_of_experience,count))
-        for key,value in self.PositiveNegativeNeutral_Count.items():
-            self.NegativePositive_Ratio[key] = (value[1][1] / value[0][1]) * 100
+                PositiveNegativeNeutral_Count[CityName].append((type_of_experience,count))
+                #if type_of_experience.lower() == "positive":
 
-        self.writeFile(self.NegativePositive_Ratio, "NegativePositiveRatio_PerCity_dict.pickle")
-        self.writeFile(self.PositiveNegativeNeutral_Count, "TypesOfExperiences_Count_PerCity.pickle") 
+        for key,value in PositiveNegativeNeutral_Count.items():
+            NegativePositive_Ratio[key] = (value[1][1] / value[0][1]) * 100
+
+        dataFrametoPlot = pandas.DataFrame()
+        for city,NegPosRatio in NegativePositive_Ratio.items():
+            dataFrametoPlot[city] = [NegPosRatio]
+            #print(NegPosRatio)
         
+        #print(dataFrametoPlot)
+        plt.figure (figsize = (22,8))
+        sns.barplot(data = dataFrametoPlot)
+        #sns.swarmplot(data=dataFrametoPlot, color=".25")
+        plt.title("Ratio of Negative to Positive Experiences")
+        plt.ylabel(" Ratio of Negative to Positive Experiences \n")
+        plt.savefig('plots/NegativePositiveExperiencesRatio', transparent = True)  
+
+
+
+            
         
  
     def ParseReviews (self, path = DATA_PATH_ENGLISH):
@@ -206,6 +224,8 @@ class TextAnalyser:
         self.writeFile(self.invertedIndex, 'InvertedIndex.pickle')
         print("Inverted Index Saved")
 
+
+    #def plotHeatMapofSimilarityBetweenCities (self,)
     def GetCityWordclouds(self, path = DATA_PATH_ENGLISH, invertedIndex = 'InvertedIndex.pickle', with_names = False):
     #create a dictionary of words(keys) and TF-IDF(value) of each city and then do a wordcloud according to that
 
@@ -319,7 +339,7 @@ class TextAnalyser:
 
         self.writeFile(self.SentimentPerReview, 'SentimentPerReview_Dict.pickle')
                                        
-    def Concact(self, path = DATA_PATH_ENGLISH):
+    def Concact(self, path = DATA_PATH_HOSTS):
     #concatinate new english files
         files = [f for f in listdir(path)]
         rev = pandas.DataFrame() #creates a new dataframe that's empty
@@ -328,7 +348,7 @@ class TextAnalyser:
             rev = pandas.concat([rev,df]).reset_index(drop=True)
 
         rev=rev.drop_duplicates()
-        rev.to_csv(path + '/EnglishConcact.csv',index = False)
+        rev.to_csv(path + '/ConcactinatedHosts.csv',index = False)
 
     def CreateDictionaryforSentimentPerUser (self):
     #takes previously created dictionary and creates a new one that user is the keys, as values we will have another dictionary that has overall average sentiment on the reviews for that user
@@ -377,41 +397,126 @@ class TextAnalyser:
                 UserValueDictionary['as_Surfer'] /= TimesUserWasReviewed_asSurfer[user] 
                 
             SentimentPerUser[user] = UserValueDictionary
-            print(SentimentPerUser)
 
         self.writeFile(SentimentPerUser, 'SentimentPerUser.pickle')
 
-    def plotOverallHostSurferGraph_WithVariations_BasedonSentiment (self, dict ='SentimentPerUser.pickle'):
+    def plotSentimentBoxGraph (self, dict ='SentimentPerUser.pickle'):
 
         SentimentPerUser = self.readFile(dict)
         OverallSentiment = []
         SurfingSentiment = []
         HostingSentiment = []
 
+        dataFrametoPlot = pandas.DataFrame()
+
+
+
         for user in SentimentPerUser.keys():
 
-            OverallSentiment.append(SentimentPerUser[user]['overall'])
-            SurfingSentiment.append(SentimentPerUser[user]['as_Surfer'])
-            HostingSentiment.append(SentimentPerUser[user]['as_Host'])
-         
-        print(sorted(SurfingSentiment[:20]))
-        #plt.figure()
-        #plt.boxplot(x= [OverallSentiment,SurfingSentiment,HostingSentiment], sym =)
-        #plt.savefig('plots/SentimentDistribution')      
+            OverallSentiment.append(float(SentimentPerUser[user]['overall']))
+            SurfingSentiment.append(float(SentimentPerUser[user]['as_Surfer']))
+            HostingSentiment.append(float(SentimentPerUser[user]['as_Host']))
 
+        SurfingSentiment = [elem for elem in SurfingSentiment if elem != 0.0]
+        SurfingSentiment = pandas.Series(SurfingSentiment)
+        HostingSentiment = [elem for elem in HostingSentiment if elem != 0.0]
+        HostingSentiment = pandas.Series(HostingSentiment)
+        OverallSentiment = [elem for elem in OverallSentiment if elem != 0.0]
+        OverallSentiment = pandas.Series(OverallSentiment)
+        dataFrametoPlot['Sentiment as Host'] = HostingSentiment
+        dataFrametoPlot['Sentiment as Surfers'] = SurfingSentiment
+        dataFrametoPlot['Overall Sentiment'] = OverallSentiment
+         
+        
+        
+        plt.figure()
+        sns.boxplot( data = dataFrametoPlot)
+        sns.swarmplot(data=dataFrametoPlot, color=".25")
+        plt.ylabel("Sentiment \n")
+        plt.savefig('plots/SentimentDistributionWithSwarm', transparent = True)      
+
+
+        #but I also want to see the correlation between surf reviewns and host reviews
     
-   #but I also want to see the correlation between surf reviewns and host reviews
+    def plotAvgSentimentPerCity (self, dict = 'SentimentPerReview_Dict.pickle', path = DATA_PATH_ENGLISH):
+
+        SentimentPerReview = self.readFile(dict)
+        dataFrametoPlot = pandas.DataFrame()
+        files = os.listdir(path)
+        
+        for file in files:
+            CityName = file [:-19]
+            CityReviews_DataFrame = pandas.read_csv(path + '/' +file)
+            sum = []
+
+            for index, row in CityReviews_DataFrame.iterrows():
+                if SentimentPerReview[row['id']] != None and SentimentPerReview[row['id']] != False:
+                    sum.append(SentimentPerReview[row['id']])
+                
+            sum = pandas.Series(sum)
+            dataFrametoPlot[CityName] = sum
+            print("Done with %s" %(CityName))
+        
+        plt.figure(figsize = (22,8))
+        #plt.figsize(12,20)
+        sns.boxplot(data = dataFrametoPlot)
+        #sns.swarmplot(data=dataFrametoPlot, color=".25")
+        plt.ylabel("Sentiment \n")
+        plt.savefig('plots/AvgSentimentPerCityBox', transparent = True)      
+            
+    def plotEvolutionOfSentimentOvertime(self, dict = 'SentimentPerReview_Dict.pickle', path = DATA_PATH):
+
+        SentimentPerReview = self.readFile(dict)
+        ConcatinatedReviews_DataFrame = pandas.read_csv(path + '/Concatinated/EnglishConcact.csv')
+        years_reviews = defaultdict(list)
+        dataFrametoPlot = pandas.DataFrame()
+
+        for index, row in ConcatinatedReviews_DataFrame.iterrows():
+            if SentimentPerReview[row['id']] != None and SentimentPerReview[row['id']] != False:
+                years_reviews[str(row['createdDate'])[0:4]].append(SentimentPerReview[row['id']])
+            
+
+        for year, SentimentofReviews in years_reviews.items():
+            years_reviews[year] = mean(SentimentofReviews)
+        
+        sentiment = list(years_reviews.values())[::-1]
+        years = list(years_reviews.keys())[::-1]
+        plt.figure(figsize = (22,8))
+        plt.plot(years,sentiment)
+        plt.title("Evolution of Sentiment Over Time")
+        plt.ylabel("Sentiment \n")
+        plt.savefig('plots/EvolutionofSentiment', transparent = True )      
+
+        
+
 
             
-   # def plotOnlyHostsandSurfers (self, dict = 'SentimentPerUser.pickle'):
+
+
+
+            
+   # def plotOnlyHostsandSurfers (self, pickle = 'SentimentPerUser.pickle', path = DATA_PATH_HOSTS + '/ConcactinatedHosts.csv'):
+    #since we only have info on the hosts of each city we can only plot, percentage wise, the members (hosts) that we have information on
+    # within europe(the cities we consider) do they tend to be hosts only surfs only or both
+   
+
+    
+
+
+
+
+
+
+       
+
 
    # def plotEvolutionOfSentimentOvertime:
 
-   #seaplot: visualize linear relationships
+
 
    #def plotWordcloudsOfReviewsWithBestAndWorseSentiemtn or maybe just show the reviews?
 
-   # def plotHeatMapofSimilarityBetweenCitiesTf-IDF
+   #
 
     #plot Average Sentiment per city
 
@@ -466,7 +571,7 @@ class TextAnalyser:
                     for word in words:
                         if word in list(SentimentDataSet['word']):
                             #print(word)
-                            Sentiment += SentimentDataSet['happiness_average'][np.where(SentimentDataSet["word"] == word)[0][0]] 
+                            Sentiment += SentimentDataSet['happiness_average'][np.where(SentimentDataSet["wnpord"] == word)[0][0]] 
                             divide_by += 1
                     print(Sentiment)
 
@@ -475,8 +580,38 @@ class TextAnalyser:
 
                     print(Sentiment)
              
-    
-                        
+    def test_SentimentPerUser (self, pickle = 'SentimentPerUser.pickle'):    
+
+        SentimentPerUser = self.readFile(pickle)
+        Host_0_count = 0
+        Surf_0_count = 0
+        Error = 0
+
+        for user in SentimentPerUser.keys():
+            
+            if SentimentPerUser[user]['overall'] == 0:
+                Error +=1
+                print(SentimentPerUser[user])
+            if SentimentPerUser[user]['as_Surfer'] == 0:
+                Surf_0_count += 1
+            if SentimentPerUser[user]['as_Host'] == 0:
+                Host_0_count += 1
+
+        print(Host_0_count,Surf_0_count,Error)
+        print(len(SentimentPerUser.keys()))
+
+    def test_trueness (self, pickle = 'SentimentPerUser.pickle'):
+
+        SentimentPerUser = self.readFile(pickle)
+
+        for user in SentimentPerUser.keys():
+
+            if SentimentPerUser[user]['as_Surfer'] != 0 and SentimentPerUser[user]['as_Host'] != 0:
+                print(user)
+
+
+
+
                 
                 
                

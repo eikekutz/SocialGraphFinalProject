@@ -12,7 +12,12 @@ t = TextAnalyser()
 #t.CalculateSentimentofEachReview()
 #t.CreateDictionaryforSentimentPerUser()
 #t.Concact()
-t.plotOverallHostSurferGraph_WithVariations_BasedonSentiment()
+#t.plotAvgSentimentPerCity()
+#t.plotSentimentBoxGraph()
+#t.test_SentimentPerUser()
+#t.test_trueness()
+#t.plotOnlyHostsandSurfers()
+t.plotEvolutionOfSentimentOvertime()
 
 
 
