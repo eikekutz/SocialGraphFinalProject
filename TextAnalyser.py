@@ -255,7 +255,7 @@ class TextAnalyser:
             plt.figure()
             plt.imshow(wordcloud.recolor(color_func = imaging), interpolation="bilinear")
             plt.axis("off")
-            plt.savefig('wordclouds/'city +'bubble')
+            plt.savefig('wordclouds/' + city +'bubble')
             
     #def getSpecificUsersWordclouds
     #def getTopHostsWordcloudsFor Reviews Received
