@@ -22,6 +22,7 @@ import numpy as np
 import string
 import seaborn as sns
 from statistics import mean
+from PIL import Image
 
 
 class TextAnalyser:
@@ -32,6 +33,7 @@ class TextAnalyser:
     DATA_PATH_PICKLES = 'data/Top50/reviews/Pickles'
     DATA_PATH_NAMES = 'data/Top50/reviews/Names'
     DATA_PATH_HOSTS = 'data/Top50/hosts'
+    DATA_PATH_CITY_IMAGES = 'data/Images'
     citynames = [f[:-19] for f in os.listdir(DATA_PATH_ENGLISH)]
     fileNamesEnglishOnly = [f for f in os.listdir(DATA_PATH_ENGLISH)]
 
@@ -159,8 +161,8 @@ class TextAnalyser:
         plt.figure (figsize = (22,8))
         sns.barplot(data = dataFrametoPlot)
         #sns.swarmplot(data=dataFrametoPlot, color=".25")
-        plt.title("Ratio of Negative to Positive Experiences")
-        plt.ylabel(" Ratio of Negative to Positive Experiences \n")
+        plt.title("Ratio of Negative to Positive Experiences (% of Negative/Positive)")
+        plt.ylabel(" Ratio of Negative to Positive Experiences ")
         plt.savefig('plots/NegativePositiveExperiencesRatio', transparent = True)  
 
 
@@ -225,15 +227,20 @@ class TextAnalyser:
         print("Inverted Index Saved")
 
 
-    #def plotHeatMapofSimilarityBetweenCities (self,)
-    def GetCityWordclouds(self, path = DATA_PATH_ENGLISH, invertedIndex = 'InvertedIndex.pickle', with_names = False):
+    
+    def GetCityWordcloudsNormal(self, path = DATA_PATH_ENGLISH, invertedIndex = 'InvertedIndex.pickle', with_names = False):
     #create a dictionary of words(keys) and TF-IDF(value) of each city and then do a wordcloud according to that
 
-        citynames = [f[:-19] for f in listdir(path)]
+
+
         if len (self.invertedIndex) == 0:
             self.invertedIndex = self.readFile(invertedIndex)
         if len (self.names) == 0:
             self.names = self.readFile('PeopleNames_List.pickle')
+
+        Image_path = 'data/Images'
+        couchMask = np.array(Image.open((Image_path + "/this_is_the_one.png")))
+        citynames = [f[:-19] for f in listdir(path)]
 
         for city in citynames:
             cityDictionary = {}
@@ -241,15 +248,76 @@ class TextAnalyser:
                 if city in pair[1].keys() and word not in self.names:
                     cityDictionary[word] = pair[0] * pair[1][city]
             #print(sorted(cityDictionary.items(), key=lambda kv: kv[1],reverse=True)[:100])
+
             wordcloud = WordCloud(background_color='white')
             wordcloud.generate_from_frequencies(frequencies=cityDictionary)
+            imaging = ImageColorGenerator(imagem)
             plt.figure()
-            plt.imshow(wordcloud, interpolation="bilinear")
+            plt.imshow(wordcloud.recolor(color_func = imaging), interpolation="bilinear")
             plt.axis("off")
-            plt.savefig('wordclouds/' + city + '_noHumanNames')
+            plt.savefig('wordclouds/' + city +'bubble')
             
     #def getSpecificUsersWordclouds
     #def getTopHostsWordcloudsFor Reviews Received
+    #def getwordcluds for reviews of hosts and reviews of surfers
+
+    def GetCityWordcloudsBadGoodReviews(self, path = DATA_PATH_ENGLISH, invertedIndex = 'InvertedIndex.pickle'):
+    #create a dictionary of words(keys) and TF-IDF(value) of each city and then do a wordcloud according to that
+        
+        StopWords = set(stopwords.words('english'))
+        Stemmer = nltk.stem.PorterStemmer()
+        SentimentPerReview = self.readFile('SentimentPerReview_Dict.pickle')
+        ConcatinatedDataFrame = pandas.read_csv('data/Top50/reviews/Concatinated/EnglishConcact.csv')
+        negative_words = []
+        positive_words = []
+        # get standard deviation but already have the box plots for reference
+        for reviewId, sentiment in SentimentPerReview.items():
+            if sentiment!= None and sentiment != False and float(sentiment) < 4.5:
+                tokens = word_tokenize(ConcatinatedDataFrame['text'][np.where(ConcatinatedDataFrame['id'] == reviewId)[0][0]])
+                print((ConcatinatedDataFrame['text'][np.where(ConcatinatedDataFrame['id'] == reviewId)[0][0]]))
+                #print(tokens)
+                for word in tokens:
+                    word = word.lower()
+                    if not bool(re.search("[^A-Za-z]",word)) and word not in StopWords:
+                        negative_words.append(word)
+            
+        
+            if sentiment!= None and sentiment != False and float(sentiment) > 7.3:
+                print((ConcatinatedDataFrame['text'][np.where(ConcatinatedDataFrame['id'] == reviewId)[0][0]]))
+                tokens = word_tokenize(ConcatinatedDataFrame['text'][np.where(ConcatinatedDataFrame['id'] == reviewId)[0][0]])
+                #print(tokens)
+                for word in tokens:
+                    word = word.lower()
+                    if not bool(re.search("[^A-Za-z]",word)) and word not in StopWords:
+                        positive_words.append(word)
+            
+        negative_dictionary = dict(nltk.FreqDist(negative_words))
+        positive_dictionary = dict(nltk.FreqDist(positive_words))
+                        
+        coloring_bad = np.array(Image.open(('data/Images/thumb-down.png')))
+        coloring_good = np.array(Image.open(('data/Images/like.png')))
+        wc_bad = WordCloud(background_color="white", mask=coloring_bad,max_font_size=40, random_state=42)
+        wc_good = WordCloud(background_color="white", mask=coloring_good,max_font_size=40, random_state=42)
+
+        
+        # generate word cloud
+        wc_bad.generate_from_frequencies(negative_dictionary)
+        wc_good.generate_from_frequencies(positive_dictionary)
+
+        # create coloring from image
+        image_colors_negative = ImageColorGenerator(coloring_bad)
+        image_colors_positive = ImageColorGenerator(coloring_good)
+        
+        fig, axes = plt.subplots(1,2,figsize=(20,20))
+        # recolor wordcloud and show
+        # we could also give color_func=image_colors directly in the constructor
+        axes[0].imshow(wc_bad.recolor(color_func=image_colors_negative), interpolation="bilinear")
+        axes[1].imshow(wc_good.recolor(color_func=image_colors_positive), interpolation="bilinear")
+        plt.axis('off')
+        plt.savefig('wordclouds/' + 'Good and Bad') 
+            
+
+
 
     def CalculateAVGCitySentiment(self, Tblob = False, path = DATA_PATH_ENGLISH):
     # takes the previous built dictionary and outputs a dictionary cointaining the average sentiment per city
@@ -453,24 +521,25 @@ class TextAnalyser:
                 if SentimentPerReview[row['id']] != None and SentimentPerReview[row['id']] != False:
                     sum.append(SentimentPerReview[row['id']])
                 
-            sum = pandas.Series(sum)
-            dataFrametoPlot[CityName] = sum
+            sum = pandas.Series(mean(sum))
+            dataFrametoPlot[CityName] = [sum]
             print("Done with %s" %(CityName))
         
         plt.figure(figsize = (22,8))
         #plt.figsize(12,20)
-        sns.boxplot(data = dataFrametoPlot)
+        sns.barplot(data = dataFrametoPlot)
         #sns.swarmplot(data=dataFrametoPlot, color=".25")
-        plt.ylabel("Sentiment \n")
-        plt.savefig('plots/AvgSentimentPerCityBox', transparent = True)      
+        plt.title("Average Sentiment Per City")
+        plt.ylabel("Average Sentiment \n")
+        plt.savefig('plots/AvgSentimentPerCityBig', transparent = True)      
             
-    def plotEvolutionOfSentimentOvertime(self, dict = 'SentimentPerReview_Dict.pickle', path = DATA_PATH):
+    def plotEvolutionOfSentimentOvertimeGeneral(self, dict = 'SentimentPerReview_Dict.pickle', path = DATA_PATH):
 
         SentimentPerReview = self.readFile(dict)
         ConcatinatedReviews_DataFrame = pandas.read_csv(path + '/Concatinated/EnglishConcact.csv')
         years_reviews = defaultdict(list)
         dataFrametoPlot = pandas.DataFrame()
-
+       
         for index, row in ConcatinatedReviews_DataFrame.iterrows():
             if SentimentPerReview[row['id']] != None and SentimentPerReview[row['id']] != False:
                 years_reviews[str(row['createdDate'])[0:4]].append(SentimentPerReview[row['id']])
@@ -480,17 +549,57 @@ class TextAnalyser:
             years_reviews[year] = mean(SentimentofReviews)
         
         sentiment = list(years_reviews.values())[::-1]
+        sentiment[4], sentiment[5] = sentiment[5], sentiment[4]
         years = list(years_reviews.keys())[::-1]
+        years[4], years[5] = years[5], years[4]
         plt.figure(figsize = (22,8))
         plt.plot(years,sentiment)
         plt.title("Evolution of Sentiment Over Time")
         plt.ylabel("Sentiment \n")
-        plt.savefig('plots/EvolutionofSentiment', transparent = True )      
+        plt.savefig('plots/EvolutionofSentimentCorrectOrder', transparent = True )      
 
+    def plotEvolutionOfSentimentOvertimeEachCity(self, dict = 'SentimentPerReview_Dict.pickle', path = DATA_PATH):
+
+        SentimentPerReview = self.readFile(dict)
+        files = os.listdir(path + "/English_Only")
+
+        for file in files:
+            city_reviews = defaultdict(list)
+            dataFrametoPlot = pandas.DataFrame()
+            CityName = file[:-19]
+            CityDataframe = pandas.read_csv(path + "/English_Only/" + file)
+            for index, row in CityDataframe.iterrows():
+                if SentimentPerReview[row['id']] != None and SentimentPerReview[row['id']] != False:
+                    city_reviews[str(row['createdDate'])[0:4]].append(SentimentPerReview[row['id']])
+            
+            years = []
+            sort_years = sorted(city_reviews.items(), key=lambda kv: kv[0])
+            for year, SentimentofReviews in sort_years:
+                years.append(year)
+                SentimentofReviews = mean(SentimentofReviews)
+                dataFrametoPlot[year] = [SentimentofReviews]
+            
+            #sentiment = []
+            #years = []
+            #sort_years = sorted(city_reviews.items(), key=lambda kv: kv[0])
+            #for year, averageSentimentofThatyear in sort_years:
+            #    years.append(year)
+            #    sentiment.append(averageSentimentofThatyear)
+
+            #sentiment = list(city_reviews.values())[::-1]
+            #sentiment[4], sentiment[5] = sentiment[5], sentiment[4]
+            #years = list(city_reviews.keys())[::-1]
+            #years[4], years[5] = years[5], years[4]
+            
+            plt.figure(figsize = (22,8))
+            sns.regplot(x = years, y = ['Sentiment mean'] * len(years), data = dataFrametoPlot)
+            plt.title("Evolution of Sentiment Over Time in %s" %(CityName))
+            plt.ylabel("Sentiment \n")
+            plt.savefig('plots/CitiesEvolutionofSentiment/%s with sns' %(CityName), transparent = True ) 
         
 
 
-            
+    #def plotHeatMapofSimilarityBetweenCities (self,)
 
 
 
@@ -510,7 +619,6 @@ class TextAnalyser:
        
 
 
-   # def plotEvolutionOfSentimentOvertime:
 
 
 
@@ -528,16 +636,19 @@ class TextAnalyser:
 
     def test (self, path = DATA_PATH): 
         
-        self.SentimentPerReview = self.readFile('SentimentPerReview_Dict.pickle')
+        SentimentPerReview = self.readFile('SentimentPerReview_Dict.pickle')
         ConcatinatedReviews_DataFrame = pandas.read_csv('data/Top50/concatinated_reviews.csv')
         SentimentPerReview_Copy = defaultdict(float)
 
-        for review, sentiment in self.SentimentPerReview.items():
-            if sentiment != None and sentiment != False:
-               SentimentPerReview_Copy[review] = sentiment
+        for review, sentiment in SentimentPerReview.items():
+            if sentiment!= None and sentiment != False and float(sentiment) < 4.5:
+                print("working")
+        #for review, sentiment in self.SentimentPerReview.items():
+         #   if sentiment != None and sentiment != False:
+               #SentimentPerReview_Copy[review] = sentiment
             
 
-        print(sorted(SentimentPerReview_Copy.items(), key = lambda kv: kv[1], reverse = False)[0:50])
+        #print(sorted(SentimentPerReview_Copy.items(), key = lambda kv: kv[1], reverse = False)[0:50])
 
     def test1 (self, path = DATA_PATH): 
 
