@@ -1,1 +1,2 @@
+cd C:\Users\Kamil\Desktop\DTU sem 2\02805_Social_Graphs\exe\project_B\source_code\SocialGraphFinalProject
 jupyter notebook --NotebookApp.iopub_data_rate_limit=10000000000
