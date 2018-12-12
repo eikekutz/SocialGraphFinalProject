@@ -720,8 +720,16 @@ class TextAnalyser:
             if SentimentPerUser[user]['as_Surfer'] != 0 and SentimentPerUser[user]['as_Host'] != 0:
                 print(user)
 
+    def sizeofreviews(self):
 
+        reviews = self.readFile('SentimentPerReview_Dict.pickle')
+        i = 0
+        for id,sent in reviews.items():
+            if sent != 0.0 and sent != False and sent != None:
+                i+=1
 
+        print(i)
+        print(len(reviews))
 
                 
                 
